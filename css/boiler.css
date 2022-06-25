@@ -746,6 +746,7 @@ aside ~ main { position: fixed; }
 .fg-darkgray {color: #333;}
 
 .color-000 { color: #000; }
+.color-8e { color: #8e8e8e; }
 .color-bbb, .fg-bbb {color: #bbb;}
 .color-ddd, .fg-ddd {color: #ddd;}
 .color-eee, .fg-eee {color: #eee;}
@@ -849,9 +850,12 @@ aside ~ main { position: fixed; }
 .flip-side { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
 .flip-side.side--back { transform: rotateY(180deg); }
 
-.font-size-13px, .font-size-18px input { font-size: 13px; }
-.font-size-14px, .font-size-18px input  { font-size: 14px; }
-.font-size-16px, .font-size-18px input  { font-size: 16px; }
+.font-size-10px, .font-size-10px input { font-size: 10px; }
+.font-size-11px, .font-size-11px input { font-size: 11px; }
+.font-size-12px, .font-size-12px input { font-size: 12px; }
+.font-size-13px, .font-size-13px input { font-size: 13px; }
+.font-size-14px, .font-size-14px input  { font-size: 14px; }
+.font-size-16px, .font-size-16px input  { font-size: 16px; }
 .font-size-18px, .font-size-18px input { font-size: 18px; }
 .font-size-20px { font-size: 20px; }
 .font-size-22px { font-size: 22px; }
@@ -1034,6 +1038,8 @@ img {object-fit: cover;}
   .mobile-right-0 { right: 0; }
 }
 
+.line-height-20px { line-height: 20px; }
+.line-height-20px { line-height: 20px; }
 .line-height-20px { line-height: 20px; }
 .line-height-25px { line-height: 25px; }
 .line-height-30px { line-height: 30px; }
@@ -1306,6 +1312,7 @@ iframe[data-device="mobile"] { width: 320px; }
 .margin-left {margin-left: auto;}
 .margin-left-10px {margin-left: 10px;}
 .margin-left-20px {margin-left: 20px;}
+.margin-left-30px {margin-left: 30px;}
 .margin-left-auto { margin-left: auto; }
 .margin-right-auto { margin-right: auto; }
 .margin-right-5px { margin-right: 5px; }
@@ -1338,10 +1345,12 @@ iframe[data-device="mobile"] { width: 320px; }
 .margin-top-70px {margin-top: 70px;}
 .margin-top-100px {margin-top: 100px;}
 .margin-top-160px {margin-top: 160px;}
+.margin-x-auto { margin-left: auto; margin-right: auto; }
 .margin-x-5px {margin-left: 5px;margin-right: 5px;}
 .margin-x-10px {margin-left: 10px;margin-right: 10px;}
 .margin-x-20px {margin-left: 20px;margin-right: 20px;}
 .margin-x-40px {margin-left: 40px; margin-right: 40px;}
+.margin-y-auto { margin-top: auto; margin-bottom: auto; }
 .margin-y-0 {margin-top: 0; margin-bottom: 0;}
 .margin-y-10px {margin-top: 10px; margin-bottom: 10px;}
 .margin-y-20px {margin-top: 20px;margin-bottom: 20px;}

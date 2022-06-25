@@ -1,0 +1,60 @@
+body[data-theme="dark"] { color: white; background: #2d2d2d; }
+body[data-theme="dark"] svg path { fill: white; }
+body[data-theme="dark"] .shadow {box-shadow: 0 1px 6px 0 white;}
+
+body[data-theme="dark"] input { color: #fff; }
+
+body[data-theme="dark"] .bg-white-1-2 {background-color: #00000080;color: #fff;}
+body[data-theme="dark"] .bg-black {background-color: #000;color: #fff;}
+body[data-theme="dark"] .bg-white {background-color: #000;color: #fff;}
+body[data-theme="dark"] .bg-white input {color: #fff;}
+body[data-theme="dark"] .bg-whitesmoke {background-color: #0f0f0f; color: #fff; }
+body[data-theme="dark"] .bg-333 { background: #ccc; color: #333; }
+body[data-theme="dark"] .bg-ddd { background: #222; color: #fff; }  
+body[data-theme="dark"] .bg-e0e0e0 { background: #1f1f1f; }
+body[data-theme="dark"] .bg-e5e5e5 { background: #5e5e5e; color: #000; }
+body[data-theme="dark"] .bg-gray {background: #2d2d2d;}
+
+body[data-theme="dark"] ico .next:before, body[data-theme="dark"] ico .next:after { background: #fff; }
+
+@media screen and (max-width: 768px) {
+  body[data-theme="dark"] .tablet-bg-white {background-color: #000; color: #fff; }
+  body[data-theme="dark"] .tablet-bg-whitesmoke {background-color: #0f0f0f; color: #fff; }
+  body[data-theme="dark"] .tablet-bg-ddd { background: #222; color: #000; }  
+  body[data-theme="dark"] .tablet-bg-e0e0e0 { background: #1f1f1f; }
+  body[data-theme="dark"] .tablet-bg-e5e5e5 { background: #5e5e5e; color: #000; }
+  body[data-theme="dark"] .tablet-bg-gray {background: #2d2d2d;}   
+}
+
+@media (prefers-color-scheme: dark) {
+  body[data-theme="system"] { color: white; background: #2d2d2d; }
+  body[data-theme="system"] svg path { fill: white; }
+  body[data-theme="system"] .shadow {box-shadow: 0 1px 6px 0 white;}
+
+  body[data-theme="system"] input {
+    color: #fff;
+  }
+  
+  body[data-theme="system"] .bg-white-1-2 {background-color: #00000080;color: #fff;}
+  body[data-theme="system"] .bg-black {background-color: #000;color: #fff;}
+  body[data-theme="system"] .bg-white {background-color: #000;color: #fff;}
+  body[data-theme="system"] .bg-white input {color: #fff;}
+  body[data-theme="system"] .bg-whitesmoke {background-color: #0f0f0f; color: #fff; }
+  body[data-theme="system"] .bg-333 { background: #ccc; color: #333; }
+  body[data-theme="system"] .bg-ddd { background: #222; color: #fff; }  
+  body[data-theme="system"] .bg-e0e0e0 { background: #1f1f1f; }
+  body[data-theme="system"] .bg-e5e5e5 { background: #5e5e5e; color: #000; }
+  body[data-theme="system"] .bg-gray {background: #2d2d2d;}
+  
+  body[data-theme="system"] ico .next:before, body[data-theme="system"] ico .next:after { background: #fff; }
+
+  @media screen and (max-width: 768px) {
+    body[data-theme="system"] .tablet-bg-white {background-color: #000; color: #fff; }
+    body[data-theme="system"] .tablet-bg-whitesmoke {background-color: #0f0f0f; color: #fff; }
+    body[data-theme="system"] .tablet-bg-ddd { background: #222; color: #000; }  
+    body[data-theme="system"] .tablet-bg-e0e0e0 { background: #1f1f1f; }
+    body[data-theme="system"] .tablet-bg-e5e5e5 { background: #5e5e5e; color: #000; }
+    body[data-theme="system"] .tablet-bg-gray {background: #2d2d2d;}   
+  }
+
+}

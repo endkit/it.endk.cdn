@@ -1,0 +1,118 @@
+aside.popup > .gallery { width: 100%; height: 100%; }
+
+aside.panel card {
+  z-index: 123;
+}
+aside.panel {
+  width: auto;
+  max-width: unset;
+  z-index: 123;
+  /* bottom: 0; */
+  margin: auto;
+  display: flex;
+  display: -webkit-flex;
+  align-items: flex-end;
+  overflow: visible;
+}
+aside.panel card {
+  /* box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%); */
+  border-radius: 0;
+  /* background: rgba(255,255,255,0.75); */
+  /* width: 100%; */
+  /* width: 480px; */
+  /* backdrop-filter: blur(5px); */
+  border-radius: 10px;
+  max-width: 100%;
+}
+@media screen and (max-width: 1420px) {
+  aside.panel card {
+    margin-top: auto;
+    /* margin: auto auto 10px; */
+    /* margin-bottom: 0; */
+  }
+}
+.aside-card,
+aside.card,
+aside.confirm {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 123;
+  top: 0;
+  overflow-x: hidden;
+  position: fixed;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+aside {
+  /* width: 100%; */
+  /* height: 100%; */
+  display: block;
+  position: absolute;
+  z-index: 1234567;
+  /* top: 0; */
+  /* bottom: 0; */
+  /* overflow-x: hidden; */
+  /* backdrop-filter: blur(3px); */
+  /* -webkit-backdrop-filter: blur(3px); */
+}
+aside ~ main {
+  position: fixed;
+  top: 0;
+}
+
+aside.aside.body-aside.card {
+  backdrop-filter: blur(10px);  
+  -webkit-backdrop-filter: blur(10px);  
+}
+
+aside.popup {
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0,0,0,0.88); */
+  top: 0;
+  /* display: inline-table; */
+  position: relative;
+  overflow-x: hidden;
+  z-index: 1234567;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.page-gallery .block-preview card {
+  background: white;
+  max-width: 1280px;
+  /* padding: 20px; */
+  border-radius: 10px;
+  /* top: 50px; */
+  left: 0;
+  margin: 0 auto 10px;
+  width: calc(100% - 20px);
+}
+
+
+.aside-card > section,
+aside.card > section {max-height: calc(100% - 40px);max-width: calc(100% - 40px);/* width: 100%; */}
+.aside-card > section > card {border-radius: 10px;width: 460px;/* min-height: 150px; */max-width: calc(100% - 0px);margin: auto;margin-top: 90px;}
+aside.card > section > card {background: white;border-radius: 10px;/* width: 460px; *//* max-width: calc(100% - 40px); */margin: auto;position: relative;display: block;color: black;}
+aside.card > section > card header {width: 100%;/* height: 80px; *//* padding: 10px 0; *//* background: #bbb; */border-top-left-radius: 10px;border-top-right-radius: 10px;display: flex;display: -webkit-flex;justify-content: center;align-items: center;}
+aside.card > section > card header > div {line-height: 36px;height: 36px;white-space: nowrap;}
+aside.card > section > card header > div > span { display: inline-block; vertical-align: top; }
+aside.card > section > card header .logo {width: 36px;height: 36px;display: inline-block;vertical-align: top;background: black;border-radius: 50%;}
+aside.card > section > card header .name { padding: 0 10px; font-size: 18px; }
+aside.card > section > card footer { font-size: 14px; }
+
+.aside-card > section > card > section,
+aside.card > section > card > section {padding: 20px 20px 20px;font-size: 18px;}
+
+aside.card .card-confirm card footer {border-top: 1px solid #bbb;width: 100%;height: 50px;/* position: absolute; */bottom : 0;white-space: nowrap;line-height: 50px;}
+aside.card .card-confirm card footer > * {display: inline-block;width: calc((100% - 1px)/2);text-align: center;/* border-right: 1px solid #bbb; */}
+aside.card .card-confirm card footer > :first-child { border-right: 1px solid #bbb; }
+
+.color-picker {width: 300px;height: 300px;padding: 10px 0;border-bottom: 0;background: white;box-shadow: 0 0 10px -3px;border-radius: 10px;position: absolute;}
+.color-picker .wheel {display: -webkit-flex;position: relative;/* width: 460px; */max-width: calc(100% - 20px);margin: auto;justify-content: center;align-items: center;}
+.color-picker header {justify-content: space-between;line-height: 30px;padding: 0 10px 10px;}

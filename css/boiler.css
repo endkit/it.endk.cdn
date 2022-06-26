@@ -182,7 +182,7 @@ figure { margin: 0; }
 
 html{min-height: 100%;height:100%;width:100%;}
 
-body{margin:0;height: 100%;/* min-height: 100vh; */display: -webkit-flex;display: flex;font-family: NunitoRegular, Arial;background-size: cover;background-position: center;background-repeat: no-repeat;background-attachment: fixed;}
+body{background-color: white;margin:0;height: 100%;/* min-height: 100vh; */display: -webkit-flex;display: flex;font-family: NunitoRegular, Arial;background-size: cover;background-position: center;background-repeat: no-repeat;background-attachment: fixed;}
 body[data-mode="dark"] { background: #2d2d2d; color: #fff; }
 body[data-location]:after{content:attr(data-page)' \A 'attr(data-path);white-space:pre;font-size:18px;position:fixed;bottom:0;z-index: 12;margin:10px;font-weight:bolder;opacity:0.125;display: none;}
 

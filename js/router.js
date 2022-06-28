@@ -161,7 +161,7 @@ window.rout.ed = {
       var pages =  dom.body.find('pages[data-pages="'+route.root+'"]');
       var page = dom.body.find('page[data-page="'+route.page+'"]');
       var vp = page ? page : pages;
-      //console.log('bang',{route,page,pages,vp});
+      console.log('bang',{route,page,pages,vp});
 
       if(vp) {
 
@@ -178,7 +178,7 @@ window.rout.ed = {
           dom.body.setAttribute('data-ppp',paths.page);
         }
 
-        vp.innerHTML === "" ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
+        vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
         //$(vp).addClass('active');
         vp.dataset.path = paths.path+(paths.search ? "?"+paths.search : "");
 

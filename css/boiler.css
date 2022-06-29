@@ -29,6 +29,8 @@ bar {display: flex;overflow: h;}
 line {overflow: hidden;display: block;}
 spacer { display: flex; }
 
+:not(:hover) > .hover { display: none; }
+
 #init ~ * {/* display: none !important; *//* z-index: 100 !important; */}
 
 .position-center { left: calc((100%)/2); margin-left: auto; margin-right: auto; }
@@ -259,8 +261,7 @@ nav {display: inline-flex;position: relative;width: 100%;}
 
 
 
-pages {width: 100%;height: 100%;min-height: 100%;display: flex;display: -webkit-flex;position: relative;position: absolute;}
-page, nopage{display: -webkit-flex;display: flex;position: relative;/* position: absolute; */}
+page, pages, nopage{display: -webkit-flex;display: flex;position: relative;justify-content:center;flex-direction: column;/* position: absolute; */}
 page > * {/* position: relative; *//* position: absolute; */}
 body page[data-page]:not(.active):not([data-active="true"]) {display: none;width: 100%;/* height: 100%; *//* min-height: 100%; */}
 page.active, nopage.active, wrap.active {/* display: block; *//* min-height: 100vh; */}
@@ -368,7 +369,7 @@ card > sections:first-child:last-child:empty { border:2px dotted #32cd32; }
 
 box {display: flex;display: inline-flex;/* position: relative; */justify-content: center;flex-direction: column;/* min-height: 50px; *//* min-width: 50px; *//* overflow: visible; *//* overflow: hidden; */position: relative;margin: 0;}
 box > section {width: 100%;/* height: 100%; */flex: 1;z-index: 1;position: relative;display: flex;display: -webkit-flex;flex-direction: row;flex-wrap: wrap;/* align-items: center; *//* justify-content: center; */}
-box > section:empty {min-height: 20px; min-width:50px;}
+box > section:empty {/*min-height: 20px; *//*min-width:50px;*/}
 card > section > group {width: auto;display: flex;display: -webkit-flex;position: relative;}
 
 media {/* overflow: hidden; */}
@@ -516,9 +517,9 @@ empty > section { width: 100%; }
  
 .border-1px-solid { border: 1px solid; }
 .border-2px-solid { border: 2px solid; }
-.border-3px-solid { border: 2px solid; }
-.border-4px-solid { border: 2px solid; }
-.border-5px-solid { border: 2px solid; }
+.border-3px-solid { border: 3px solid; }
+.border-4px-solid { border: 4px solid; }
+.border-5px-solid { border: 5px solid; }
 
 .border-top-1px-solid { border-top: 1px solid; }
 .border-top-2px-solid { border-top: 2px solid; }
@@ -725,6 +726,7 @@ aside ~ main { position: fixed; }
 .border-color-r { border-color: #ff3b30; }
 .border-color-g { border-color: #32cd32; }
 .border-color-b { border-color: #0096c7; }
+.border-color-dbdbdb { border-color: #dbdbdb; }
 .border-color-white { border-color: #fff;}
 .border-color-black { border-color: #000;}
 .border-color-lightgray { border-color: #bbb;}
@@ -760,6 +762,7 @@ aside ~ main { position: fixed; }
 .color-ddd, .fg-ddd {color: #ddd;}
 .color-eee, .fg-eee {color: #eee;}
 .color-fff, .fg-fff {color: #fff;}
+.color-32-33-36-28 { color: rgba(32, 33, 36, 0.28); }
 @media screen and (max-width: 768px) {
   .tablet-fg-white { color: white; }  
 }
@@ -869,6 +872,7 @@ aside ~ main { position: fixed; }
 .font-size-20px { font-size: 20px; }
 .font-size-22px { font-size: 22px; }
 .font-size-24px { font-size: 24px; }
+.font-size-28px { font-size: 28px; }
 .font-size-30px { font-size: 30px; }
 .font-size-32px { font-size: 32px; }
 .font-size-36px { font-size: 36px; }
@@ -1434,6 +1438,7 @@ iframe[data-device="mobile"] { width: 320px; }
 
 .width-50px { width: 50px; }
 .width-72px { width: 72px; }
+.width-150px { width: 150px; }
 .width-1440px { width: 1440px; }
 
 .width-100pc--36px {width: calc(100% - 36px);}
@@ -1748,6 +1753,18 @@ empty:hover { box-shadow: 0 10px 10px 0 #ff3b30; }
 }
 
 .spin-30s { -webkit-animation: spin 30s infinite linear; }
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
 
 .text-align-center { text-align: center; }
 .text-align-right { text-align: right; }

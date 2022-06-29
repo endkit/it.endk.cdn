@@ -1682,6 +1682,7 @@ body[data-auth="true"] .isauth-padding-top-50px { padding-top: 50px; }
 .scale-500pc, [data-transform-scale="500%"] { transform: scale(5); }
 
 .shadow {box-shadow: 0 1px 6px 0;}
+.shadow-0-1px-6px { box-shadow: 0 1px 6px rgb(32 33 36 / 28%); }
 .box-shadow-0-0-0-1px, .shadow-1px {box-shadow: 0 0px 0px 1px;}
 .shadow-white.shadow-1px { box-shadow: 0 0 0 1px white; }
 .fg-white .shadow {color: white;box-shadow: 0 1px 6px 0 beige;}

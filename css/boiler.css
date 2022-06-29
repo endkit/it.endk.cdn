@@ -1426,6 +1426,10 @@ iframe[data-device="mobile"] { width: 320px; }
     .mobile-margin-top-20px {margin-top: 20px;}
     
     .mobile-margin-bottom-10px {margin-bottom: 10px;}
+    .mobile-margin-bottom-20px {margin-bottom: 20px;}
+    .mobile-margin-bottom-30px {margin-bottom: 30px;}
+    .mobile-margin-bottom-40px {margin-bottom: 40px;}
+    .mobile-margin-bottom-50px {margin-bottom: 50px;}
 }
 
 .width-50px { width: 50px; }

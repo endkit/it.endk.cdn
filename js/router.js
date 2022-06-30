@@ -162,7 +162,7 @@ window.rout.ed = {
 
       //Variables
       route.root = getRoot($('pages[data-pages]'));
-      var pages =  dom.body.find('pages[data-pages="'+route.root+'"]');
+      var pages =  dom.body.find('pages[data-root="'+route.root+'"]');
       var page = dom.body.find('page[data-page="'+route.page+'"]');
       var vp = page ? page : pages;
       console.log('bang',{route,page,pages,vp});

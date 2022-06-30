@@ -582,6 +582,8 @@ empty > section { width: 100%; }
   .mobile-left-50px { left: 50px; }
 }
 
+.top-unset { top: unset; }
+
 .margin-20px { margin: 20px; }
 
 .right-20px { right: 20px; }
@@ -679,6 +681,7 @@ aside ~ main { position: fixed; }
 .bg-3c3c3c { background: #3c3c3c; }
 .bg-e5e5e5 { background: #e5e5e5; }
 .bg-8f8f8f { background: #8f8f8f; }
+.bg-2f80ec { background: #2f80ec; }
 .bg-ddd {background: #ddd;}
 .bg-lightgray {background: #bbb;}
 .bg-gray, .bg-777 {background: #777;}
@@ -2941,6 +2944,7 @@ section > picture:not([data-aspect-ratio]) {/* width: 100%; *//* height: 0; */}
 .width-1440px { width: 1440px; }
 .width-1600px { width: 1600px; }
 .width-960px { width: 960px; }
+.width-20pc {width: 20%;}
 .width-100pc {width: 100%;}
 .width-100pc--320px { width: calc(100% - 320px); }
 .width-100pc--8vw { width: calc(100% - 8vw); }

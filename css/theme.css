@@ -5,7 +5,7 @@ body[data-theme="dark"] .shadow {box-shadow: 0 1px 6px 0 white;}
 body[data-theme="dark"] input { color: #fff; }
 
 body[data-theme="dark"] .bg-white-1-2 {background-color: #00000080;color: #fff;}
-body[data-theme="dark"] .bg-black {background-color: #000;color: #fff;}
+body[data-theme="dark"] .bg-black {background-color: #fff;color: #000;}
 body[data-theme="dark"] .bg-white {background-color: #000;color: #fff;}
 body[data-theme="dark"] .bg-white input {color: #fff;}
 body[data-theme="dark"] .bg-whitesmoke {background-color: #0f0f0f; color: #fff; }

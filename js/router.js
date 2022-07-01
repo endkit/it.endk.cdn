@@ -42,7 +42,6 @@ String.prototype.router = async function(params) {
   //console.log(route);
 
   return new Promise(async function (resolve, reject) {
-
     if(route) {
 
       //console.log('truly',route,GET.length);
@@ -82,7 +81,7 @@ String.prototype.router = async function(params) {
             hash ? hash = document.body.dataset.hash = "#"+hash: document.body.removeAttribute("data-hash");
           }
 
-          await rout.ed.view(route);
+          //await rout.ed.bang(route);
         
           got = paths.GOT = tabs;
           paths = rout.e(rout.ed.url(got));
@@ -95,7 +94,8 @@ String.prototype.router = async function(params) {
           reject(e);
         });
 
-    } else {
+    } 
+    else {
       reject({ code: 400 });
     }
   });
@@ -157,296 +157,309 @@ window.rout.e = (state,w) => {
   return data;
 };
 window.rout.ed = {
-  bang: route => {
-    return new Promise(async(resolve,reject) => {
-
-      //Variables
-      route.root = getRoot($('pages[data-pages]'));
-      var pages =  dom.body.find('pages[data-root="'+route.root+'"]');
-      var page = dom.body.find('page[data-page="'+route.page+'"]');
-      var vp = page ? page : pages;
-      console.log('bang',{route,page,pages,vp});
-
-      if(vp) {
-
-        var wt = vp.tagName.toLowerCase();
-
-        //View Route
-        route.root ? document.body.dataset.pages = route.root : document.body.removeAttribute('data-pages');
-        if(vp.closest('main')) {
-          //$('[data-pages]').removeClass('active');
-          //$('[data-page]').removeClass("active");
-          dom.body.removeAttribute('data-ppp');
-        }
-        else {
-          dom.body.setAttribute('data-ppp',paths.page);
-        }
-
-        vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
-        //$(vp).addClass('active');
-        vp.dataset.path = paths.path+(paths.search ? "?"+paths.search : "");
-
-        var fet = vp.all('[data-fetch]:empty');
-        if(fet.length > 0) {
-          var ch = 0; do {
-            var el = fet[ch];
-            if(el) {
-              var get = el.dataset.fetch;
-              var html = await ajax(get);
-              el.innerHTML = html;
-              var srcs = el.all('[data-src]');
-              lazyLoad(srcs);
-            }
-          ch++; } while(ch < fet.length);
-        }
-      } else {
-          dom.body.removeAttribute('data-ppp');
-      }
-
-      lazyLoad(dom.body.all('[data-src]'));
-
-      if(vp && vp.closest('main')) {
-        $('page').removeClass("active");
-        $('pages').removeClass("active");
-        $('[data-page]').removeClass("active");
-        $('[data-root]').removeClass("active");
-      } else {
-        $('body > page').removeClass("active");
-        $('body > pages').removeClass("active");  
-        $('body > pages page').removeClass("active");    
-        $('[data-page]').removeClass("active");         
-        $('[data-root]').removeClass("active");
-      }
+    back: route => {
       
-      $('[data-page="'+route.page+'"]').addClass("active");
-      $('[data-root="'+route.root+'"]').addClass("active");
+    },
+    bang: route => {
+      return new Promise(async(resolve,reject) => {
 
-      var rs = $('[data-root]');
-      if(rs.length > 0) {
-        var i = 0; do {
-          route.page.includes(rs[i].dataset.root) ? rs[i].classList.add('active') : null;
-        i++; } while(i < rs.length)
-      }
+        //Variables
+        route.root = getRoot($('pages[data-pages]'));
+        var pages =  dom.body.find('pages[data-root="'+route.root+'"]');
+        var page = dom.body.find('page[data-page="'+route.page+'"]');
+        var vp = page ? page : pages;
+        console.log('bang',{route,page,pages,vp});
 
-      resolve(route);
+        if(vp) {
 
-    });
-  },
-  dir: (url, num, g = []) => {
-    if(url) {
-      var split = url.split("/");
-      split.forEach((a, i) => {
-        i < split.length - 0 ? g[i] = a : null;
-      });
-      g[0] === "" ? g.shift() : null;
-      g[g.length - 1] === "" ? g.pop() : null;
-    }
-    return g;
-  },
-  url: (dir) => {
-    if(dir.length > 0) {
-      var end = dir[dir.length-1];
-      href = dir.length === 0 ? "/" : "/" + dir.join("/") + (end.includes("?") ? "" : "/");
-    }
-    else {
-      href = "/";
-    }
-    return href;
-  },
-  vars: async function(tabs) {
-    var d = 0, e = 0; do {
-      var dir = tabs[d];
-      if(dir && dir.length > 0) {
-        if(dir.charAt(0) === "*") {
-          dir = GOT[d];
+          var wt = vp.tagName.toLowerCase();
+
+          //View Route
+          route.root ? document.body.dataset.pages = route.root : document.body.removeAttribute('data-pages');
+          if(vp.closest('main')) {
+            //$('[data-pages]').removeClass('active');
+            //$('[data-page]').removeClass("active");
+            dom.body.removeAttribute('data-ppp');
+          }
+          else {
+            dom.body.setAttribute('data-ppp',paths.page);
+          }
+
+          vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
+          //$(vp).addClass('active');
+          vp.dataset.path = paths.path+(paths.search ? "?"+paths.search : "");
+
+          var fet = vp.all('[data-fetch]:empty');
+          if(fet.length > 0) {
+            var ch = 0; do {
+              var el = fet[ch];
+              if(el) {
+                var get = el.dataset.fetch;
+                var html = await ajax(get);
+                el.innerHTML = html;
+                var srcs = el.all('[data-src]');
+                lazyLoad(srcs);
+              }
+            ch++; } while(ch < fet.length);
+          }
+        } else {
+            dom.body.removeAttribute('data-ppp');
         }
-        if(dir.charAt(0) === ":") {
-          dir = dir.substring(1);
-          if(!isNaN(dir)) {
-            var drc = rout.ed.dir(dom.body.dataset.path);
-            console.log({dir, is: d >= parseInt(dir), drcd: drc[d]});
-            if(drc[e-1] && d >= parseInt(dir)) {
-              //alert('dir'+dir);
-              e === 0 && d > 0 ? e = d + 1 : e;
-              dir = drc[e];
-              //d = d  1;
-              e++;
-            } else {
-              dir = null;
-              tabs.splice(d,1);
-              d = tabs.length;//alert(1);
+
+        lazyLoad(dom.body.all('[data-src]'));
+
+        if(vp && vp.closest('main')) {
+          $('page').removeClass("active");
+          $('pages').removeClass("active");          
+          $('[data-page]').removeClass("active");
+          $('[data-root]').removeClass("active");
+          
+          $(vp).addClass("active");
+          $('[data-root="'+route.root+'"]').addClass("active");
+        } else {
+          $('body > page').removeClass("active");
+          $('body > pages').removeClass("active");  
+          $('body > pages page').removeClass("active");              
+          //$('[data-page]').removeClass("active");         
+          //$('[data-root]').removeClass("active");
+          
+          $(vp).addClass("active");
+          $('[data-root="'+route.root+'"]').addClass("active");
+        }
+
+        //$('[data-page="'+route.page+'"]').addClass("active");
+        //$('[data-root="'+route.root+'"]').addClass("active");
+
+        var rs = $('[data-root]');
+        if(rs.length > 0) {
+          var i = 0; do {
+            route.page.includes(rs[i].dataset.root) ? rs[i].classList.add('active') : null;
+          i++; } while(i < rs.length)
+        }
+
+        resolve(route);
+
+      });
+    },
+    close: () => {
+        var active = document.body.find('main page.active');
+        (active ? active.dataset.path : '/').router();
+    },
+    dir: (url, num, g = []) => {
+      if(url) {
+        var split = url.split("/");
+        split.forEach((a, i) => {
+          i < split.length - 0 ? g[i] = a : null;
+        });
+        g[0] === "" ? g.shift() : null;
+        g[g.length - 1] === "" ? g.pop() : null;
+      }
+      return g;
+    },
+    url: (dir) => {
+      if(dir.length > 0) {
+        var end = dir[dir.length-1];
+        href = dir.length === 0 ? "/" : "/" + dir.join("/") + (end.includes("?") ? "" : "/");
+      }
+      else {
+        href = "/";
+      }
+      return href;
+    },
+    vars: async function(tabs) {
+      var d = 0, e = 0; do {
+        var dir = tabs[d];
+        if(dir && dir.length > 0) {
+          if(dir.charAt(0) === "*") {
+            dir = GOT[d];
+          }
+          if(dir.charAt(0) === ":") {
+            dir = dir.substring(1);
+            if(!isNaN(dir)) {
+              var drc = rout.ed.dir(dom.body.dataset.path);
+              console.log({dir, is: d >= parseInt(dir), drcd: drc[d]});
+              if(drc[e-1] && d >= parseInt(dir)) {
+                //alert('dir'+dir);
+                e === 0 && d > 0 ? e = d + 1 : e;
+                dir = drc[e];
+                //d = d  1;
+                e++;
+              } else {
+                dir = null;
+                tabs.splice(d,1);
+                d = tabs.length;//alert(1);
+              }
             }
-          }
-          if(dir === "app") {
-            var name = generateName();
-            var domain = name.toLowerCase().replace("-","").replace(" ","");
-            dir = domain;
-          }
-          if(dir === "app") {
-            var name = generateName();
-            var domain = name.toLowerCase().replace("-","").replace(" ","");
-            dir = domain;
-          }
-          if(dir === "color") {
-            dir = colors.random();
-          }
-          if(dir === "domain") {
-            if(window.GET && window.GET[d]) {
-              dir = GET[d]; //alert(1);
-            } else {
+            if(dir === "app") {
+              var name = generateName();
+              var domain = name.toLowerCase().replace("-","").replace(" ","");
+              dir = domain;
+            }
+            if(dir === "app") {
+              var name = generateName();
+              var domain = name.toLowerCase().replace("-","").replace(" ","");
+              dir = domain;
+            }
+            if(dir === "color") {
+              dir = colors.random();
+            }
+            if(dir === "domain") {
+              if(window.GET && window.GET[d]) {
+                dir = GET[d]; //alert(1);
+              } else {
+                dir = crypt.uid.create(1);
+              }
+            }
+            if(dir === "get") {
+                var drc = rout.ed.dir(dom.body.dataset.path);
+                if(drc[d]) {
+                dir = drc[d]; //alert(drc[d]);
+                }else {
+                dir = null;
+                tabs.splice(d,1);
+                d = tabs.length;//alert(1);
+              }
+            }
+            if(is.json(decodeURI(dir))) {
+              var str = decodeURI(dir);
+              var json = JSON.parse(decodeURI(str));
+              var drc = rout.ed.dir(dom.body.dataset.path);
+              dir = drc[d]; //alert(1);
+            }
+            if(dir === "id") {
+              var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
+              var domain = get[d];
+              //alert(domain);
+              var isApp = domain ? await is.app(domain) : false;
+              var isNum = !isNaN(domain);
+
+              console.log({isApp,isNum});
+              if(domain) {
+                dir = get[d];
+                dir = Crypto.uid.create(1);
+              } else {
+                dir = Crypto.uid.create(1);
+              }
+            }
+            if(dir === "iframe") {
+              //alert(dir);
+              dir = null;
+            }
+            if(dir === "last") {
+              var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
+              var pagi = get[get.length-1];
+              var i = get[d];
+              var int = parseInt(pagi)-1; //alert('last:'+int);
+              dir = int < 1 ? 'coochie' : int;
+            }
+            if(dir === "next") {
+              var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
+              var pagi = get[get.length-1];
+              var int = get[d];
+              var dir = int === "%E2%88%9E" ? 1 : parseInt(int)+1;
+            }
+            if(dir === "path") {
+              if(dom.body.dataset.path) {
+                var drc = rout.ed.dir(dom.body.dataset.path);
+                //alert(drc.length);
+                if(drc.length > 1) {
+
+                } else {
+                  dir = drc.join("/");
+                }
+              }
+              d = tabs.length;
+            }
+            if(dir === "uid") {
               dir = crypt.uid.create(1);
             }
           }
-          if(dir === "get") {
-              var drc = rout.ed.dir(dom.body.dataset.path);
-              if(drc[d]) {
-              dir = drc[d]; //alert(drc[d]);
-              }else {
-              dir = null;
-              tabs.splice(d,1);
-              d = tabs.length;//alert(1);
-            }
+          if(dir) {
+            tabs[d] = dir.toString().split(":")[0];
+          } else {
+            tabs[d] = null;
           }
-          if(is.json(decodeURI(dir))) {
-            var str = decodeURI(dir);
-            var json = JSON.parse(decodeURI(str));
-            var drc = rout.ed.dir(dom.body.dataset.path);
-            dir = drc[d]; //alert(1);
-          }
-          if(dir === "id") {
-            var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
-            var domain = get[d];
-            //alert(domain);
-            var isApp = domain ? await is.app(domain) : false;
-            var isNum = !isNaN(domain);
+        }
+      d++; } while(d < tabs.length);
+      tabs = tabs.filter(function (el) { return el != null; });
+      //console.log({tabs});
+      return tabs;
+    },
+    view: route => {
+      return new Promise(async(resolve,reject) => {
 
-            console.log({isApp,isNum});
-            if(domain) {
-              dir = get[d];
-              dir = Crypto.uid.create(1);
-            } else {
-              dir = Crypto.uid.create(1);
-            }
-          }
-          if(dir === "iframe") {
-            //alert(dir);
-            dir = null;
-          }
-          if(dir === "last") {
-            var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
-            var pagi = get[get.length-1];
-            var i = get[d];
-            var int = parseInt(pagi)-1; //alert('last:'+int);
-            dir = int < 1 ? 'coochie' : int;
-          }
-          if(dir === "next") {
-            var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
-            var pagi = get[get.length-1];
-            var int = get[d];
-            var dir = int === "%E2%88%9E" ? 1 : parseInt(int)+1;
-          }
-          if(dir === "path") {
-            if(dom.body.dataset.path) {
-              var drc = rout.ed.dir(dom.body.dataset.path);
-              //alert(drc.length);
-              if(drc.length > 1) {
+        //Variables
+        route.root = getRoot($('pages[data-pages]'));
+        var pages =  dom.body.find('pages[data-pages="'+route.root+'"]');
+        var page = dom.body.find('page[data-page="'+route.page+'"]');
+        var vp = page ? page : pages;
+        console.log('bang',{route,page,pages,vp});
 
-              } else {
-                dir = drc.join("/");
+        if(vp) {
+
+          var wt = vp.tagName.toLowerCase();
+
+          //View Route
+          route.root ? document.body.dataset.pages = route.root : document.body.removeAttribute('data-pages');
+          if(vp.closest('main')) {
+            //$('[data-pages]').removeClass('active');
+            //$('[data-page]').removeClass("active");
+            dom.body.removeAttribute('data-ppp');
+          }
+          else {
+            dom.body.setAttribute('data-ppp',paths.page);
+          }
+
+          vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
+          //$(vp).addClass('active');
+          vp.dataset.path = paths.path+(paths.search ? "?"+paths.search : "");
+
+          var fet = vp.all('[data-fetch]:empty');
+          if(fet.length > 0) {
+            var ch = 0; do {
+              var el = fet[ch];
+              if(el) {
+                var get = el.dataset.fetch;
+                var html = await ajax(get);
+                el.innerHTML = html;
+                var srcs = el.all('[data-src]');
+                lazyLoad(srcs);
               }
-            }
-            d = tabs.length;
+            ch++; } while(ch < fet.length);
           }
-          if(dir === "uid") {
-            dir = crypt.uid.create(1);
-          }
-        }
-        if(dir) {
-          tabs[d] = dir.toString().split(":")[0];
         } else {
-          tabs[d] = null;
-        }
-      }
-    d++; } while(d < tabs.length);
-    tabs = tabs.filter(function (el) { return el != null; });
-    //console.log({tabs});
-    return tabs;
-  },
-  view: route => {
-    return new Promise(async(resolve,reject) => {
-
-      //Variables
-      route.root = getRoot($('pages[data-pages]'));
-      var pages =  dom.body.find('pages[data-pages="'+route.root+'"]');
-      var page = dom.body.find('page[data-page="'+route.page+'"]');
-      var vp = page ? page : pages;
-      console.log('bang',{route,page,pages,vp});
-
-      if(vp) {
-
-        var wt = vp.tagName.toLowerCase();
-
-        //View Route
-        route.root ? document.body.dataset.pages = route.root : document.body.removeAttribute('data-pages');
-        if(vp.closest('main')) {
-          //$('[data-pages]').removeClass('active');
-          //$('[data-page]').removeClass("active");
-          dom.body.removeAttribute('data-ppp');
-        }
-        else {
-          dom.body.setAttribute('data-ppp',paths.page);
+            dom.body.removeAttribute('data-ppp');
         }
 
-        vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
-        //$(vp).addClass('active');
-        vp.dataset.path = paths.path+(paths.search ? "?"+paths.search : "");
+        lazyLoad(dom.body.all('[data-src]'));
 
-        var fet = vp.all('[data-fetch]:empty');
-        if(fet.length > 0) {
-          var ch = 0; do {
-            var el = fet[ch];
-            if(el) {
-              var get = el.dataset.fetch;
-              var html = await ajax(get);
-              el.innerHTML = html;
-              var srcs = el.all('[data-src]');
-              lazyLoad(srcs);
-            }
-          ch++; } while(ch < fet.length);
+        if(vp && vp.closest('main')) {
+          $('page').removeClass("active");
+          $('pages').removeClass("active");
+          $('[data-page]').removeClass("active");
+          $('[data-root]').removeClass("active");
+        } else {
+          $('body > page').removeClass("active");
+          $('body > pages').removeClass("active");  
+          $('body > pages page').removeClass("active");    
+          $('[data-page]').removeClass("active");         
+          $('[data-root]').removeClass("active");
         }
-      } else {
-          dom.body.removeAttribute('data-ppp');
-      }
 
-      lazyLoad(dom.body.all('[data-src]'));
+        $('[data-page="'+route.page+'"]').addClass("active");
+        $('[data-root="'+route.root+'"]').addClass("active");
 
-      if(vp && vp.closest('main')) {
-        $('page').removeClass("active");
-        $('pages').removeClass("active");
-        $('[data-page]').removeClass("active");
-        $('[data-root]').removeClass("active");
-      } else {
-        $('body > page').removeClass("active");
-        $('body > pages').removeClass("active");  
-        $('body > pages page').removeClass("active");    
-        $('[data-page]').removeClass("active");         
-        $('[data-root]').removeClass("active");
-      }
-      
-      $('[data-page="'+route.page+'"]').addClass("active");
-      $('[data-root="'+route.root+'"]').addClass("active");
+        var rs = $('[data-root]');
+        if(rs.length > 0) {
+          var i = 0; do {
+            route.page.includes(rs[i].dataset.root) ? rs[i].classList.add('active') : null;
+          i++; } while(i < rs.length)
+        }
 
-      var rs = $('[data-root]');
-      if(rs.length > 0) {
-        var i = 0; do {
-          route.page.includes(rs[i].dataset.root) ? rs[i].classList.add('active') : null;
-        i++; } while(i < rs.length)
-      }
+        resolve(route);
 
-      resolve(route);
-
-    });      
-  }
+      });      
+    }
 };
 window.rout.ing = (href, GOT, n) => {
   return false;

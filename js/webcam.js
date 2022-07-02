@@ -45,7 +45,8 @@ window.webcam = {
     control: {
       play: (paths) => {
         return new Promise((resolve, reject) => { //console.log(link,arrayRemove(link,""));
-            var camera = dom.camera;
+          var camera = byId('camera');
+          if(camera) {
             var video = camera.find("video");
 
             if(window.width < window.height) { constraints = webcam.constraints.horizontal; }
@@ -75,6 +76,7 @@ window.webcam = {
                 dom.body.dataset.cam = false;
                 resolve({paths,err});
             });
+          }
         });
     },
       stop: (paths) => {

@@ -345,7 +345,7 @@ body > footer > picture {position:absolute;top: 0;left: 0;right: 0;bottom: 0;z-i
 
 empty {/* position: relative; */display: flex;display: -webkit-flex;justify-content: center;align-items: center;overflow: hidden;}
 
-block > section:empty {min-height: 50px;/* border:2px dotted #ff3b30; */z-index: 1;}
+block > section:empty {/* min-height: 50px;*//* border:2px dotted #ff3b30; */z-index: 1;}
 
 blocks > block > card {display: flex;display: -webkit-inline-flex;flex-direction:column;z-index: 1;/* min-height: 100%; *//* width: 100%; *//* flex-flow: wrap; *//* margin-left: auto; *//* margin-right: auto; */justify-content: center;justify-content: space-between;/* min-height: 50px; *//* min-width: 50px; */}
 block > card:not(:empty) {/* min-height: 50px; */}

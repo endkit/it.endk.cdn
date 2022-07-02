@@ -469,6 +469,22 @@ empty > section { width: 100%; }
 .border-radius-40px, [data-border-radius="40px"] { border-radius: 40px; }
 .border-radius-50px, [data-border-radius="50px"] { border-radius: 50px; }
 .border-radius-50pc, [data-border-radius="50pc"] { border-radius: 50%; }
+
+.border-top-left-radius-10px {border-top-left-radius: 10px;}
+.border-top-right-radius-10px {border-top-right-radius: 10px;}
+
+.border-top-left-radius-20px {border-top-left-radius: 20px;}
+.border-top-right-radius-20px {border-top-right-radius: 20px;}
+
+/*Border Radius*/
+.border-radii-50pc > * { border-radius: 50%; }
+
+.border-radius-1px { border-radius: 1px; }
+.border-radius-2px { border-radius: 2px; }
+.border-radius-3px { border-radius: 3px; }
+.border-radius-4px { border-radius: 4px; }
+.border-radius-5px { border-radius: 5px; }
+
 @media screen and (max-width: 1024px) {
   .xga-border-radius-0, [data-xga-border-radius="0"] { border-radius: 0; }
 }
@@ -479,19 +495,13 @@ empty > section { width: 100%; }
   .dw960px-border-radius-0 { border-radius: 0; }
 }
 @media screen and (max-width: 640px) {
-  .xga-border-radius-0 { border-radius: 0; }
-  .xga-border-radius-10px { border-radius: 10px; }
+  .vga-border-radius-0 { border-radius: 0; }
+  .vga-border-radius-10px { border-radius: 10px; }
 }
 @media screen and (max-width: 480px) {
   .mobile-border-radius-0 { border-radius: 0; }
   .mobile-border-radius-10px { border-radius: 10px; }
 }
-
-.border-top-left-radius-10px {border-top-left-radius: 10px;}
-.border-top-right-radius-10px {border-top-right-radius: 10px;}
-
-.border-top-left-radius-20px {border-top-left-radius: 20px;}
-.border-top-right-radius-20px {border-top-right-radius: 20px;}
 
 .border-bottom-right-radius-0 {border-bottom-right-radius: 0;}
 .border-bottom-left-radius-0 {border-bottom-left-radius: 0;}
@@ -499,14 +509,8 @@ empty > section { width: 100%; }
 .border-bottom-right-radius-10px {border-bottom-right-radius: 10px;}
 .border-bottom-left-radius-20px {border-bottom-left-radius: 20px;}
 .border-bottom-right-radius-20px {border-bottom-right-radius: 20px;}
+/*Border Radius*/
 
-.border-radii-50pc > * { border-radius: 50%; }
-
-.border-radius-1px { border-radius: 1px; }
-.border-radius-2px { border-radius: 2px; }
-.border-radius-3px { border-radius: 3px; }
-.border-radius-4px { border-radius: 4px; }
-.border-radius-5px { border-radius: 5px; }
  
 .border-1px-solid { border: 1px solid; }
 .border-2px-solid { border: 2px solid; }

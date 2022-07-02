@@ -82,10 +82,11 @@ window.webcam = {
       stop: (paths) => {
         return new Promise((resolve, reject) => {
           if(webcam.stream) {
+            var camera = byId('camera');
             var video = byId('webcam');
             var cam = byId('video');
             webcam.stream.getTracks().forEach(track => track.stop());
-            $(dom.camera).removeClass('playing');
+            $(camera).removeClass('playing');
             //$(all('.io')).removeClass('i').addClass('o');
             dom.body.dataset.webcam = false;
           }

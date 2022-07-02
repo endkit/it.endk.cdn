@@ -46,8 +46,6 @@ body[data-tap="focal.tap.builder(target)"] {padding: 0 0 0px;}
 
 .body-div > section { display: flex; display: -wevbkit-flex; }
 
-block > section:empty {min-height: 50px;/* border:2px dotted #ff3b30; */}
-
 script > ~ { display: none; }
 
 card {display: block;max-width: 100%;overflow: visible;}

@@ -2963,6 +2963,7 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
 .width-40px { width: 40px; }
 .width-50px { width: 50px; }
 .width-75px { width: 75px; }
+.width-90px { width: 90px; }
 .width-100px, [data-width="100px"] {width: 100px;}
 .width-120px { width: 120px; }
 .width-125px { width: 125px; }

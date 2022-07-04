@@ -495,6 +495,10 @@ empty > section { width: 100%; }
 @media screen and (max-width: 960px) {
   .dw960px-border-radius-0 { border-radius: 0; }
 }
+@media screen and (max-width: 768px) {
+  .tablet-border-radius-0 { border-radius: 0; }
+  .tablet-border-radius-10px { border-radius: 10px; }
+}
 @media screen and (max-width: 640px) {
   .vga-border-radius-0 { border-radius: 0; }
   .vga-border-radius-10px { border-radius: 10px; }

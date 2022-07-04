@@ -81,7 +81,7 @@ String.prototype.router = async function(params) {
             hash ? hash = document.body.dataset.hash = "#"+hash: document.body.removeAttribute("data-hash");
           }
 
-          //await rout.ed.bang(route);
+          await rout.ed.bang(route);
         
           got = paths.GOT = tabs;
           paths = rout.e(rout.ed.url(got));
@@ -216,21 +216,22 @@ window.rout.ed = {
           
           $(vp).addClass("active");
           $('[data-root="'+route.root+'"]').addClass("active");
-        } else {
+        } 
+        else {
           $('body > page').removeClass("active");
           $('body > pages').removeClass("active");  
           $('body > pages page').removeClass("active");              
-          //$('[data-page]').removeClass("active");         
+          $('body > * [data-page]').removeClass("active");         
           //$('[data-root]').removeClass("active");
           
-          $(vp).addClass("active");
+          $('[data-page="'+route.page+'"]').addClass("active");
           $('[data-root="'+route.root+'"]').addClass("active");
         }
 
         //$('[data-page="'+route.page+'"]').addClass("active");
         //$('[data-root="'+route.root+'"]').addClass("active");
 
-        var rs = $('[data-root]');
+        var rs = $('[data-pages]');
         if(rs.length > 0) {
           var i = 0; do {
             route.page.includes(rs[i].dataset.root) ? rs[i].classList.add('active') : null;

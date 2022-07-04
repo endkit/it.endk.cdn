@@ -938,6 +938,7 @@ aside ~ main { position: fixed; }
 .height-8px, [data-height="8px"] { height: 3px; }
 .height-9px, [data-height="9px"] { height: 4px; }
 .height-10px { height: 10px; }
+.height-18px { height: 18px; }
 .height-20px { height: 20px; }
 .height-24px, [data-height="24px"] { height: 24px; }
 .height-25px, [data-height="25px"] { height: 25px; }
@@ -1091,8 +1092,8 @@ img {object-fit: cover;}
   .mobile-right-0 { right: 0; }
 }
 
-.line-height-20px { line-height: 20px; }
-.line-height-20px { line-height: 20px; }
+.line-height-16px { line-height: 16px; }
+.line-height-18px { line-height: 18px; }
 .line-height-20px { line-height: 20px; }
 .line-height-25px { line-height: 25px; }
 .line-height-30px { line-height: 30px; }

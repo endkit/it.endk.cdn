@@ -687,6 +687,7 @@ aside ~ main { position: fixed; }
 .bg-8f8f8f { background: #8f8f8f; }
 .bg-2f80ec { background: #2f80ec; }
 .bg-ddd {background: #ddd;}
+.bg-d2 { background: #d2d2d2; }
 .bg-ef {background: #efefef;}
 .bg-lightgray {background: #bbb;}
 .bg-gray, .bg-777 {background: #777;}

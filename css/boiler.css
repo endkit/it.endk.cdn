@@ -1847,6 +1847,7 @@ empty:hover { box-shadow: 0 10px 10px 0 #ff3b30; }
 @media screen and (max-width: 480px) {
   .mobile-top-50px { top: 50px; }
   .mobile-top-60px { top: 60px; }
+  [data-mobile-top="calc(100vw + 50px)"] { top: calc(100vw + 50px); }
 }
 
 .bounce-1s { animation: bounce 1s infinite; -webkit-animation: bounce 1s infinite; -moz-animation: bounce 1s infinite; -o-animation: bounce 1s infinite; }

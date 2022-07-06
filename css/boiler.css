@@ -2436,11 +2436,11 @@ section > picture:not([data-aspect-ratio]) {/* width: 100%; *//* height: 0; */}
 [data-height="80px"] { height: 80px; }
 [data-height="90px"] { height: 90px; }
 [data-height="100px"] { height: 100px; }
-[data-height="110px"] { height: 100px; }
-[data-height="120px"] { height: 100px; }
-[data-height="130px"] { height: 100px; }
-[data-height="140px"] { height: 100px; }
-[data-height="150px"] {height: 1px;}
+[data-height="110px"] { height: 110px; }
+[data-height="120px"] { height: 120px; }
+[data-height="130px"] { height: 130px; }
+[data-height="140px"] { height: 140px; }
+[data-height="150px"] { height: 150px;}
 [data-height="160px"] { height: 160px; }
 [data-height="300px"] { height: 300px; }  
 [data-height="300px"] { height: 300px; }

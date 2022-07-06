@@ -3042,6 +3042,14 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
 .width-100pc-40px, .width-100pc--40px {width: calc(100% - 40px); }
 .width-100pc-80px, .width-100pc--80px {width: calc(100% - 80px); }
 .width-50vw { width: 50vw; }
+
+@media screen and (orientation: landscape) {
+  .landscape-width-100vh { width: 100vh; }
+}
+@media screen and (orientation: portrait) {
+  .portrait-width-100vw { width: 100vw; }
+}
+
 @media screen and (max-width: 1280px) {  
   .tablet-width-1280px, [data-tablet-width="1280px"] { width: 1280px; }
 }

@@ -650,6 +650,10 @@ ico > svg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100
   [data-xga-flex-direction="column"], .xga-direction-column {flex-direction: column;}
   xga-direction-column, [data-xga-flex-direction="column-reverse"] { flex-direction: column-reverse; }
 }
+@media screen and (max-width: 1000px) {
+    .dw1000px-direction-column, [data-1000px-flex-direction="column"] { flex-direction: column; }  
+    .dw1000px-direction-column, [data-1000px-flex-direction="column"] { flex-direction: column; }  
+}
 @media screen and (max-width: 960px) {
     .dw960px-direction-column, [data-960px-flex-direction="column"] { flex-direction: column; }  
     .dw960px-direction-column, [data-960px-flex-direction="column"] { flex-direction: column; }  
@@ -1642,6 +1646,10 @@ iframe[data-device="mobile"] { width: 320px; }
 .padding-y-100px { padding-top: 100px; padding-bottom: 100px; }
 .padding-y-110px { padding-top: 110px; padding-bottom: 110px; }
 .padding-y-120px { padding-top: 120px; padding-bottom: 120px; }
+@media screen and (max-width: 1000px) {
+  .dw1000px-padding-y-10px { padding-top: 10px; padding-bottom: 10px; }
+  .dw1000px-padding-y-20px { padding-top: 20px; padding-bottom: 20px; }
+}
 @media screen and (max-width: 480px) {
     .mobile-padding-y-10px { padding-top: 10px; padding-bottom: 10px; }
     .mobile-padding-x-20px { padding-left: 20px; padding-right: 20px; }
@@ -1968,12 +1976,12 @@ empty:hover { box-shadow: 0 10px 10px 0 #ff3b30; }
 [data-columns="1"] > :nth-last-child(1) ~ * {margin-bottom: 0px;}
 [data-columns="1"] > * picture {/* width: 100%; *//* padding-top: 40%; */}
 
-[data-columns="2"] > * {width: calc((100% - 20px)/2);margin: 0 20px 0px 0;}
+[data-columns="2"] > * {width: calc((100% - 20px)/2);margin: 0 20px 20px 0;}
+[data-columns="2"] > :nth-last-child(3) ~ * { margin-bottom: 0; }
 [data-columns="2"].margins-10px > * {width: calc((100% - 10px)/2);margin: 0 10px 0px 0;}
 [data-columns="2"].margins-10px > :last-child {margin: 0;}
 [data-columns="2"] > *:first-child {/* margin-right: 20px; */}
 [data-columns="2"] > :nth-child(2n) {margin-right: 0;}
-[data-columns="2"] > :nth-last-child(3) ~ *{/* margin-bottom: 0; */}
 section > picture:not([data-aspect-ratio]) {/* width: 100%; *//* height: 0; */}
 
 
@@ -2171,6 +2179,11 @@ section > picture:not([data-aspect-ratio]) {/* width: 100%; *//* height: 0; */}
   [data-margin-top="90px"] { margin-top: 90px; }  
   [data-margin-top="100px"] { margin-top: 100px; }
   /*Margins*/
+@media screen and (max-width: 1000px) {
+  .dw1000px-margin-left-20px { margin-left: 20px; }
+  .dw1000px-margin-x-auto { margin-left: auto; margin-right: auto; }
+  .dw1000px-margin-y-20px { margin-bottom: 20px; margin-top: 20px; }
+}
 @media screen and (max-width: 960px) {
   .dw960px-margin-right, [data-960px-margin-right="auto"] {margin-right: auto !important;}
   .dw960px-margin-auto, [data-960px-margin="auto"] { margin: auto; }
@@ -2355,6 +2368,8 @@ section > picture:not([data-aspect-ratio]) {/* width: 100%; *//* height: 0; */}
 /*Columns*/
 
 .margins-10px[data-columns] > * {margin-right: 10px;/* margin-bottom: 10px; */}
+
+[data-columns="2"] > *.border-1px-solid {width:calc((100% - 24px)/2);}
 
 /*Data Attributes*/
 
@@ -3003,6 +3018,7 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
 .width-375px {width: 375px;}
 .width-425px, [data-width="425px"] { width: 425px; }
 .width-480px { width: 480px; }
+.width-600px, [data-width="600px"] { width: 600px; }
 .width-640px, [data-width="640px"] { width: 640px; }
 .width-720px, [data-width="720px"] { width: 720px; }
 [data-width="100%-320px"] {width: calc(100% - 320px);}
@@ -3036,7 +3052,12 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
 @media screen and (max-width: 1280px) {  
   .tablet-width-1280px, [data-tablet-width="1280px"] { width: 1280px; }
 }
-@media screen and (max-width: 960px) {  
+@media screen and (max-width: 1000px) {
+  .dw1000px-width-600px, [data-dw1000px-width="600px"] { width: 600px; }
+}
+@media screen and (max-width: 960px) {
+  .dw600px-width-600px, [data-dw600px-width="600px"] { width: 600px; }
+  .dw960px-width-100pc { width: 100pc; }
   .dw960px-width-480px { width: 480px; }
 }
 @media screen and (max-width: 768px) {  

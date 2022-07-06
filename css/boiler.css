@@ -814,22 +814,6 @@ aside ~ main { position: fixed; }
 }
 
 [data-align-items="flex-end"] { align-items: flex-end; }
-[data-display="flex"], .flex {display: flex;display: -webkit-flex;vertical-align: top;justify-content: start;/* flex-direction: row; *//* flex-wrap: wrap; */}
-@media screen and (max-width: 1280px) {
-  .dw1280px-flex { display: flex; }
-}
-@media screen and (max-width: 1024px) {
-  .xga-flex { display: flex; display: -webkit-flex; }
-}
-@media screen and (max-width: 960px) {
-  .dw960px-hide { display: none; }
-}
-@media screen and (max-width: 768px) {
-  .tablet-flex { display: flex; display: -webkit-flex; }
-}
-@media screen and (max-width: 640px) {
-  .vga-flex { display: flex; display: -webkit-flex; }
-}
 
 [data-flex-flow="column wrap"] {flex-flow: column wrap;}
 
@@ -2939,7 +2923,6 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
 @media screen and (max-width: 480px) { 
   .mobile-translateX--100pc { transform: translateX(-100pc) } 
   .mobile-fixed { position: fixed; }
-  .mobile-flex { display: flex; }
   .mobile-width-0, [data-mobile-width="0"] { width: calc(0%); }
   .mobile-width-100pc, [data-mobile-width="100%"] { width: calc(100%); }
   [data-mobile-width="50px"] { width: calc(50px); }
@@ -3271,6 +3254,23 @@ peel:hover:before,peel:hover:after{box-shadow:0 24px 30px rgba(0, 0, 0, .3);}
 .hover:not(:hover) .hover-flex,
 .hover:not(:hover) .hover-show { display: none; }
 
+[data-display="flex"], .flex {display: flex;display: -webkit-flex;vertical-align: top;justify-content: start;/* flex-direction: row; *//* flex-wrap: wrap; */}
+@media screen and (max-width: 1280px) {
+  .dw1280px-flex { display: flex; }
+}
+@media screen and (max-width: 1024px) {
+  .xga-flex { display: flex; display: -webkit-flex; }
+}
+@media screen and (max-width: 960px) {
+  .dw960px-hide { display: none; }
+}
+@media screen and (max-width: 768px) {
+  .tablet-flex { display: flex; display: -webkit-flex; }
+}
+@media screen and (max-width: 640px) {
+  .vga-flex { display: flex; display: -webkit-flex; }
+}
+
 @media screen and (max-width: 1024px) {
   .xga-show {display: flex;display: -webkit-flex;}
 }
@@ -3280,5 +3280,6 @@ peel:hover:before,peel:hover:after{box-shadow:0 24px 30px rgba(0, 0, 0, .3);}
 }
 @media screen and (max-width: 480px) {
   .mobile-width-100pc-40px {width: calc(100% - 40px); }
+  .mobile-flex { display: flex; }
   .mobile-show {display: flex;display: -webkit-flex;}
 }

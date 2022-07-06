@@ -997,25 +997,7 @@ aside ~ main { position: fixed; }
   [data-mobile-min-height="auto"] { min-height: auto; }
 }
 
-@media screen and (max-width: 1280px) {
-  .hd-hide { display: none; }
-}
-@media screen and (max-width: 1024px) {
-  .xga-hide {display: none;}
-}
-@media screen and (max-width: 800px) {
-  .svga-hide { display: none; }
-  .svga-show { display: initial; }
-}
-@media screen and (max-width: 768px) {
-  .tablet-height-100pc { height: calc(100%); }
-}
-@media screen and (max-width: 640px) {
-  .vga-hide { display: none; }
-}
 @media screen and (max-width: 480px) {
-  .mobile-hide { display: none; }
-
   .mobile-height-100pc { height: calc(100%); }
   
   .mobile-height-100pc-50px { height: calc(100% - 50px); }
@@ -3248,6 +3230,25 @@ peel:hover:before,peel:hover:after{box-shadow:0 24px 30px rgba(0, 0, 0, .3);}
 /*Cascading*/
 
 .hide, [data-display="none"] {display: none;}
+@media screen and (max-width: 1280px) {
+  .hd-hide { display: none; }
+}
+@media screen and (max-width: 1024px) {
+  .xga-hide {display: none;}
+}
+@media screen and (max-width: 800px) {
+  .svga-hide { display: none; }
+  .svga-show { display: initial; }
+}
+@media screen and (max-width: 768px) {
+  .tablet-height-100pc { height: calc(100%); }
+}
+@media screen and (max-width: 640px) {
+  .vga-hide { display: none; }
+}
+@media screen and (max-width: 480px) {
+  .mobile-hide { display: none; }
+}
 
 .hover-show { display: block; }
 .hover-flex { display: flex; }

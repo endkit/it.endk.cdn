@@ -2164,11 +2164,16 @@ section > picture:not([data-aspect-ratio]) {/* width: 100%; *//* height: 0; */}
   [data-margin-top="100px"] { margin-top: 100px; }
   /*Margins*/
 @media screen and (max-width: 1000px) {
+  .dw1000px-margin-left-0 { margin-left: 0; }
   .dw1000px-margin-left-20px { margin-left: 20px; }
+  .dw1000px-margin-top-20px { margin-top: 20px; }
   .dw1000px-margin-x-auto { margin-left: auto; margin-right: auto; }
   .dw1000px-margin-y-20px { margin-bottom: 20px; margin-top: 20px; }
 }
 @media screen and (max-width: 960px) {
+  .dw960px-margin-left-0 { margin-left: 0; }
+  .dw960px-margin-left-20px { margin-left: 20px; }
+  .dw960px-margin-top-20px { margin-top: 20px; }
   .dw960px-margin-right, [data-960px-margin-right="auto"] {margin-right: auto !important;}
   .dw960px-margin-auto, [data-960px-margin="auto"] { margin: auto; }
   .dw960px-margin-left-10px, [data-960px-margin-left="10px"] {margin-left: 10px;}
@@ -2183,41 +2188,6 @@ section > picture:not([data-aspect-ratio]) {/* width: 100%; *//* height: 0; */}
 @media screen and (max-width: 768px) {
   [data-tablet-columns="4"] > :nth-child(5n) { margin-right: 20px; }
 }
-@media screen and (max-width: 480px) {
-  .dw960px-margin-left-0 { margin-left: 0; }
-  .dw960px-margin-x-auto, [data-960px-margin-x="auto"] { margin-left: auto; margin-right: auto; }
-
-  .mobile-margin-auto, [data-mobile-margin="auto"] {margin: auto;}
-  .mobile-margin-right-auto { margin-right: auto; }
-  
-  .mobile-margin-left-0px, [data-mobile-margin-left="0px"] {margin-left: 0px;}
-  .mobile-margin-left-10px, [data-mobile-margin-left="10px"] {margin-left: 10px;}
-
-  .mobile-margin-0px, [data-mobile-margin="0"] {margin: 0px;}
-  .mobile-margin-5px, [data-mobile-margin="5px"] { margin: 5px;}
-  .mobile-margin-10px, [data-mobile-margin="10px"] { margin: 10px;}
-
-  .mobile-margin-top-0 { margin-top: 0; }
-  .mobile-margin-top-50px { margin-top: 50px; }
-  .mobile-margin-top-60px { margin-top: 60px; }
-  
-  .mobile-margin-left-0px, [data-mobile-margin-left="0"] { margin-left: 0px;}
-  .mobile-margin-left-10px, [data-mobile-margin-left="10px"] { margin-left: 10px;}
-  .mobile-margin-left-20px, [data-mobile-margin-left="20px"] { margin-left: 20px; }
-  
-  .mobile-margin-left-0, [data-mobile-margin-left="0px"] {margin-left: 0px;}
-  [data-mobile-margin-left="10px"] { margin-left: 10px;}
-  [data-mobile-margin-left="20px"] { margin-left: 20px; }
-
-  .mobile-margin-bottom-20px { margin-bottom: 20px; }
-  .mobile-margin-bottom { margin-bottom: auto; }
-  
-  [data-mobile-margin="0 10px"] {margin: 0 10px;}
-  [data-mobile-margin="10px"] {margin: 10px;}
-
-  .mobile-top-unset {top: unset;}
-  .mobile-bottom-0 { bottom: 0; }
-}   
 
 @media screen and (max-width: 960px) {
 
@@ -2294,6 +2264,41 @@ section > picture:not([data-aspect-ratio]) {/* width: 100%; *//* height: 0; */}
 
   [data-tablet-columns="12"] > * {width: calc((100% - 0px)/10); margin: 0 0px 20px 0; }
 }
+@media screen and (max-width: 480px) {
+  .dw960px-margin-left-0 { margin-left: 0; }
+  .dw960px-margin-x-auto, [data-960px-margin-x="auto"] { margin-left: auto; margin-right: auto; }
+
+  .mobile-margin-auto, [data-mobile-margin="auto"] {margin: auto;}
+  .mobile-margin-right-auto { margin-right: auto; }
+  
+  .mobile-margin-left-0px, [data-mobile-margin-left="0px"] {margin-left: 0px;}
+  .mobile-margin-left-10px, [data-mobile-margin-left="10px"] {margin-left: 10px;}
+
+  .mobile-margin-0px, [data-mobile-margin="0"] {margin: 0px;}
+  .mobile-margin-5px, [data-mobile-margin="5px"] { margin: 5px;}
+  .mobile-margin-10px, [data-mobile-margin="10px"] { margin: 10px;}
+
+  .mobile-margin-top-0 { margin-top: 0; }
+  .mobile-margin-top-50px { margin-top: 50px; }
+  .mobile-margin-top-60px { margin-top: 60px; }
+  
+  .mobile-margin-left-0px, [data-mobile-margin-left="0"] { margin-left: 0px;}
+  .mobile-margin-left-10px, [data-mobile-margin-left="10px"] { margin-left: 10px;}
+  .mobile-margin-left-20px, [data-mobile-margin-left="20px"] { margin-left: 20px; }
+  
+  .mobile-margin-left-0, [data-mobile-margin-left="0px"] {margin-left: 0px;}
+  [data-mobile-margin-left="10px"] { margin-left: 10px;}
+  [data-mobile-margin-left="20px"] { margin-left: 20px; }
+
+  .mobile-margin-bottom-20px { margin-bottom: 20px; }
+  .mobile-margin-bottom { margin-bottom: auto; }
+  
+  [data-mobile-margin="0 10px"] {margin: 0 10px;}
+  [data-mobile-margin="10px"] {margin: 10px;}
+
+  .mobile-top-unset {top: unset;}
+  .mobile-bottom-0 { bottom: 0; }
+}   
 
 @media screen and (max-width: 640px) {
   [data-vga-columns="2"] > * {width: calc((100% - 20px)/2);}

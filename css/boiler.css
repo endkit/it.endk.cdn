@@ -781,6 +781,7 @@ aside ~ main { position: fixed; }
 }
 @media screen and (max-width: 480px) {
   .mobile-fg-white { color: white; }  
+  [data-webcam="true"] .mobile-webcam-color-fff { color: #fff; }
 }
 
 

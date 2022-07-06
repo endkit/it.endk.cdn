@@ -362,24 +362,32 @@ window.webcam = {
     },
     snap: format => {
         if(webcam.stream) {
-            var cam = byId('video');
+            var cam = byId('camera');
             if(['photo'].includes(format)) {
-                var photo = byId('camera-photo');
+                var vid = cam.find('video');
+                var canvas = cam.find('canvas');
+                var photo = cam.find('picture');
                 var width = webcam.global.width;
                 var context = canvas.getContext('2d');
-                photo.width = canvas.width = width;
-                webcam.global.height = photo.height = canvas.height = height = cam.videoHeight/(cam.videoWidth/width);
+                photo.width = canvas.width = width; //alert("width:" + width);
+                webcam.global.height = 
+                  photo.height = canvas.height = 
+                  height = vid.videoHeight/(vid.videoWidth/width); //alert("height: " + height);
                 //if(cam.clientHeight < cam.clientWidth) { }
-                context.drawImage(cam, 0, 0, width, height);
+                context.drawImage(vid, 0, 0, width, height);
                 if(width && height) {
-                    //var data = canvas.toDataURL('image/png');
-                    //canvas.width = width;
-                    //canvas.height = height;
-                    var image = canvas.toDataURL('image/png');
-                    //context.drawImage(video, 0, 0, width, height);
-                    cam.closest('.camera').classList.add('snap');
-                    cam.closest('.create-form').classList.add('snap');
-                    photo.find('img').src = image;
+                  //alert(width + ":" + height);
+                  //var data = canvas.toDataURL('image/png');
+                  //canvas.width = width;
+                  //canvas.height = height;
+                  var image = canvas.toDataURL('image/png');
+                  //context.drawImage(video, 0, 0, width, height);
+
+                  //cam.closest('.camera').classList.add('snap');
+                  //cam.closest('.create-form').classList.add('snap');
+
+                  photo.find('img').src = image;
+                  console.log('width:'+width+", height:"+height);
                 }
             }
             if(format === 'video') {

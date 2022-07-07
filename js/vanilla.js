@@ -173,12 +173,26 @@ function ajax(url, settings) { ;
     }
     //console.log({url,req});
     fetch(req)
-      .then(response => {
-        if(!response.ok) { throw new Error(JSON.stringify({code:response.status,message:response.statusText})); }
+      .then(async(response) => {
+        //console.log('vanilla.js ajax.fetch res',{response});
+        if(!response.ok) { 
+          //throw new Error(JSON.stringify({code:response.status,message:response.statusText})); 
+          return response.text().then(text => {
+            var statusText = JSON.parse(text);
+            var data = {code:response.status,message:statusText};
+            console.log('vanilla.js ajax.fetch res.err',data);
+            var text = JSON.stringify(data);
+            throw new Error(text);
+          })
+        }
         return response.text()
       })
       .then(response => resolve(response))
-      .catch(e => reject(JSON.parse(e.message)));
+      .catch(error => {
+        console.log('vanilla.js ajax.fetch catch', error.message);
+        var message = JSON.parse(error.message);
+        reject(message);
+      });
   });
 }
 function getFilename(str) {
@@ -373,7 +387,6 @@ function drag(e) {
 function setTranslate(xPos, yPos, el) {
   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
 }
-
 
 window.notify = {
   counter: 0,

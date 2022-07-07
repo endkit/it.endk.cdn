@@ -38,8 +38,6 @@ spacer { display: flex; }
 
 body[data-tap="focal.tap.builder(target)"]:after {content: '';display: block;height: 70px;height: 0;}
 body[data-ppp] { overflow: hidden; }
-
-[data-width="100%-320px"], [data-width="calc(100%-320px)"], [data-width="calc(100% - 320px)"] { width: calc(100% - 320px); }
   
 body[data-tap="focal.tap.builder(target)"] {padding: 0 0 0px;}
 /*body, body[data-tap="focal.tap.builder(target)"], body.pointer {cursor: url('/cdn/gif/pointer.gif'),auto;}*/
@@ -933,6 +931,11 @@ aside ~ main { position: fixed; }
 .height-100pc-70px {height: calc(100% - 70px);}
 .height-100pc-90px {height: calc(100% - 90px);}
 .height-100pc-110px {height: calc(100% - 110px);}
+
+[data-height="100%-4px"], [data-height="calc(100%-4px)"], [data-height="calc(100% - 4px)"] { height: calc(100% - 4px); }
+[data-height="100%-8px"], [data-height="calc(100%-8px)"], [data-height="calc(100% - 8px)"] { height: calc(100% - 8px); }
+[data-height="100%-320px"], [data-height="calc(100%-320px)"], [data-height="calc(100% - 320px)"] { height: calc(100% - 320px); }
+
 @media screen and (max-width: 480px) {
   .mobile-height-100pc-70px {height: calc(100% - 70px);}
   
@@ -3003,6 +3006,11 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
 
 
 [data-width="320px"], .width-iphone, .width-mobile, [data-screen="mobile"], [data-screen="iphone"] { width: 320px; }
+
+
+[data-width="100%-4px"], [data-width="calc(100%-4px)"], [data-width="calc(100% - 4px)"] { width: calc(100% - 4px); }
+[data-width="100%-8px"], [data-width="calc(100%-8px)"], [data-width="calc(100% - 8px)"] { width: calc(100% - 8px); }
+[data-width="100%-320px"], [data-width="calc(100%-320px)"], [data-width="calc(100% - 320px)"] { width: calc(100% - 320px); }
 
 /*Widths*/
 

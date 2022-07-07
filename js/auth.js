@@ -1,13 +1,10 @@
-function notify(packet) {
-  alert(packet.msg);
-}
 window.auth = {
   config: {
-    apiKey: "AIzaSyBQDha5igS_fAWT5MG0yuQhviYluz2pGgo",
-    authDomain: "anoniiimous-5fc1b.firebaseapp.com",
-    projectId: "anoniiimous-5fc1b",
-    messagingSenderId: "723849278721",
-    appId: "1:723849278721:web:c636daf96842fc51dc5700"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    messagingSenderId: "",
+    appId: ""
   },
   change: (user) => {
     

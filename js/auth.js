@@ -131,40 +131,36 @@ window.auth = {
       
     },
     setup: (event) => {
-      //alert(123);
       event.preventDefault();
       var form = event.target;
       var displayName = form.find('[placeholder="First Name"]').value + ' ' + form.find('[placeholder="Last Name"]').value,
           username = form.find('[placeholder="Username"]').value;
       var email = form.find('[placeholder="Email"]').value,
         password = form.find('input[type="password"]').value;
-      return new Promise((resolve, reject) => {
-       
- 
+      return new Promise((resolve, reject) => {     
         var data = {
           email, username, password, displayName
         };
+        console.log("auth.account.setup",{data});
         
         if (displayName && username && email && password) {
-          if (auth.isEmail(email)) {
-            ajax(api.endpoint+'/v1/users/create', {dataType: "POST", data}).then(e => {
-            //console.log(e);
-              //alert(456);
-            var results = JSON.parse(e), count = results.count,  user = auth.user(); console.log(results,user);
-            //if(count === 0) {
-            console.log("auth.account.setup", { email, password });
-    //alert(results);
-              resolve();
-            //}
-            //else { alert('This user exists already.',3); }
-            }).catch(function (error) {        
-              console.log(error);   
-              reject();
-                                      });
-          } else {
+          if(auth.isEmail(email)) {
+            ajax(api.endpoint+'/v1/users/create', {dataType: "POST", data})
+              .then(e => {
+                var results = JSON.parse(e), user = auth.user();
+                console.log("auth.account.setup", {results, user});
+                resolve(user);
+              })
+              .catch(function (error) {        
+                console.log('auth.js auth.account.setup user.create catch',{error});
+                reject(error);
+              });
+          } 
+          else {
             alert("You must register with a valid email address.", 3);
           }
-        } else {
+        } 
+        else {
           alert("You must supply a name, email, password and username.", 3);
         }
       })

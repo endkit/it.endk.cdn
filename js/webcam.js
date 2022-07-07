@@ -91,7 +91,45 @@ window.webcam = {
             dom.body.dataset.webcam = false;
           }
         });
-      }
+      },
+      switch: () => {
+        navigator.mediaDevices.enumerateDevices().then(devices => { //console.log({devices});
+            var videos = [];
+            if(devices.length > 0) {
+                var i = 0, ii = 0; while(i < devices.length) {
+                    var track = devices[i];
+                    var kind = track.kind;
+                    if(kind === 'videoinput') {
+                        var tracks = webcam.stream.getTracks();
+                        for(var iii = 0; iii < tracks.length; iii++){
+                            if(track.deviceId === tracks[iii].getSettings().deviceId) {
+                                var id = track.deviceId;
+                            }
+                        }                    
+                        videos[ii] = track; ii++; 
+                    }
+                i++; }
+                var next = objByKeyVal(videos,'deviceId',id); 
+                var v = parseInt(keyByVal(videos,next))+1;
+                var w = videos[v===videos.length?0:v].deviceId;
+                const videoConstraints = {};
+                videoConstraints.deviceId = { exact: w };
+                const constraints = {
+                    video: videoConstraints,
+                    audio: false
+                };
+                navigator.mediaDevices
+                    .getUserMedia(constraints)
+                    .then(stream => {
+                      var camera = byId('camera');
+                      var video = camera.find('video');
+                      webcam.stream = stream;
+                      video.srcObject = stream;
+                      return navigator.mediaDevices.enumerateDevices();
+                    });
+            }
+        });
+      },
     },
     canplay: event => {
         console.log('canplay');
@@ -397,44 +435,6 @@ window.webcam = {
         }
     },
     stream: null,
-    switch: () => {
-        navigator.mediaDevices.enumerateDevices().then(devices => { //console.log({devices});
-            var videos = [];
-            if(devices.length > 0) {
-                var i = 0, ii = 0; while(i < devices.length) {
-                    var track = devices[i];
-                    var kind = track.kind;
-                    if(kind === 'videoinput') { 
-
-                        var tracks = webcam.stream.getTracks();
-                        for(var iii = 0; iii < tracks.length; iii++){
-                            if(track.deviceId === tracks[iii].getSettings().deviceId) {
-                                var id = track.deviceId;
-                            }
-                        }                    
-                        videos[ii] = track; ii++; 
-                    }
-
-                i++; }
-                var next = objByKeyVal(videos,'deviceId',id); 
-                var v = parseInt(keyByVal(videos,next))+1;
-                var w = videos[v===videos.length?0:v].deviceId;
-                const videoConstraints = {};
-                videoConstraints.deviceId = { exact: w };
-                const constraints = {
-                    video: videoConstraints,
-                    audio: false
-                };
-                navigator.mediaDevices
-                    .getUserMedia(constraints)
-                    .then(stream => {
-                      webcam.stream = stream;
-                      video.srcObject = stream;
-                      return navigator.mediaDevices.enumerateDevices();
-                    });
-            }
-        });
-    },
     camera: () => { return dom.body.dataset.cam === "true"; },
     capture: () => { return dom.camera.find('[type="file"]').capture !== undefined; },
     tags: target => {

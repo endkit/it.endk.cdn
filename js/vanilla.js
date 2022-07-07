@@ -159,9 +159,9 @@ function ajax(url, settings) { ;
       if(settings.dataType) {
         var data = {
           method: settings.dataType,
-          body: (settings.data ? JSON.stringify(settings.data) : null),
-          headers: new Headers(settings.headers ? settings.headers : null)
+          body: (settings.data ? JSON.stringify(settings.data) : null)
         };
+        settings.headers ? data.headers = new Headers(settings.headers) : null;
         settings.dataType === "OPTIONS" ? data.credentials = 'include' : null;
         req = new Request(url, data);
       } else {
@@ -250,6 +250,143 @@ function URLjson(url) {
   });
   return result;
 }
+function getPageURL(body,css,js) { return getBlobURL(`<html><head>`+css+js+`</head>`+body+`</html>`, 'text/html'); }
 
+function getPath(links) {
+  var link = ``;
+  link += (links[f].link.includes('https:') ? `` : (window.location.protocol === "file:" ? `.` : ``));
+  link += links[f].link;
+  return link;
+}
+
+function capFirst(string) { return string.charAt(0).toUpperCase() + string.slice(1); }
+
+window.words = [
+  ["Amazing", "Bright", "Cool", "Enthusiastic", "Fun", "Great", "Happy", "Infinite", "Lavish", "Pure", "Real", "Super", "Tough", "Ultra"],
+  ["Art", "Book", "Company", "Drinks", "Entertainment", "Food", "Gifts", "Hair", "Industries", "Jewelry", "Kicks", "Nursery", "Restaurant", "Spa", "Tech", "World"]
+];
+
+function generateName(name) {
+  var r1 = getRandomInt(0, words[0].length), n1 = words[0][r1];
+  var r2 = getRandomInt(0, words[0].length), n2 = words[1][r2];
+  return capFirst(n1) + ' ' + n2;
+}
+function generateDomain(name) {
+  return (name ? name : generateName()).toLowerCase().replace("-","-").replace(" ","-");
+}
+function generateURL(name) {
+  return name.toLowerCase().replace(' ','-').replace(`'`,'').replace(`"`,'');
+}
 
 function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min)) + min; }
+
+function getRoot(els) {
+  var els = $('[data-root]');
+  var root = null;
+  if(els.length > 0) {
+    var arr = [];
+    var r = 0; do {
+      arr.push(els[r].dataset.root);
+    r++; } while(r < els.length);
+    window.paths.arr = arr;
+    root = paths.page.stringExists(arr);
+  }
+  return root;
+}
+function getPages(win) {
+  var els = win.document.body.all('[data-page]');
+  var root = null;
+  if(els.length > 0) {
+    var arr = [];
+    var r = 0; do {
+      arr.push(els[r].dataset.root);
+    r++; } while(r < els.length);
+    window.paths.arr = arr;
+    root = paths.page.stringExists(arr);
+  }
+  return root;
+}
+
+function resizeIframe(obj) {
+  var el = obj.contentWindow.document.body.firstElementChild;
+  obj.style.height = el ? el.clientHeight + 'px' : null;
+}
+
+
+
+
+
+drag.gable = {};
+drag.gable["tools"] = byId('tools');
+drag.ging = null
+var currentX;
+var currentY;
+var initialX;
+var initialY;
+var xOffset = 0;
+var yOffset = 0;
+
+
+function dragStart(e) {
+  //console.log('dragStart',{drag});
+  if (e.type === "touchstart") {
+    initialX = e.touches[0].clientX - xOffset;
+    initialY = e.touches[0].clientY - yOffset;
+  } else {
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
+  }
+
+  if (e.target.closest('[data-drag]')) {
+    drag.elem = e.target.closest('[data-drag]')
+    drag.ging = true;
+  }
+}
+
+function dragEnd(e) {
+  //console.log('dragEnd',{drag});
+  initialX = currentX;
+  initialY = currentY;
+
+  drag.ging = false;
+}
+
+function drag(e) {
+  //console.log('drag',{drag});
+  if (drag.ging) {
+
+    e.preventDefault();
+
+    if (e.type === "touchmove") {
+      currentX = e.touches[0].clientX - initialX;
+      currentY = e.touches[0].clientY - initialY;
+    } else {
+      currentX = e.clientX - initialX;
+      currentY = e.clientY - initialY;
+    }
+
+    xOffset = currentX;
+    yOffset = currentY;
+  }
+}
+
+function setTranslate(xPos, yPos, el) {
+  el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+}
+
+
+window.notify = {
+  counter: 0,
+  alert: (message,timer) => {
+    alert(message);
+  },
+  dialog: () => {
+
+  },
+  confirm: () => {
+
+  },
+  zIndex: elem => elem.forEach((v,k) => {
+    v.style.zIndex = 123456789 + (elem.length - k);
+  })
+}

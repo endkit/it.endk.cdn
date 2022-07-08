@@ -334,6 +334,14 @@ window.on.touch = {
       $(chd).toggleClass("expand");
       $(chd).siblings().removeClass("expand");
     }
+  
+    var elem = target.closest("[data-submit]");
+    if (elem) {
+      var id = elem.dataset.submit;
+      var form = byId(id);
+      var submit = form.find('[type="submit"]');
+      submit.click();
+    }
 
     var elem = target.closest("[data-toggle]");
     if (elem) {

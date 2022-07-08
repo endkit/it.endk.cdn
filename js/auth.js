@@ -130,6 +130,19 @@ window.auth = {
       });
       
     },
+    signin: (email, password) => {
+      return new Promise((resolve, reject) => {
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then(e => {
+              resolve(e);
+          })
+          .catch(e => {
+              reject(e);
+          });
+      });
+    },
     setup: (event) => {
       event.preventDefault();
       var form = event.target;
@@ -183,19 +196,6 @@ window.auth = {
         });
       }
     }
-  },
-  signin: (email, password) => {
-    return new Promise((resolve, reject) => {
-      firebase
-          .auth()
-          .signInWithEmailAndPassword(email, password)
-          .then(e => {
-              resolve(e);
-          })
-          .catch(e => {
-              reject(e);
-          });
-    });
   },
   state: (event) => {
     if (typeof event === "string" || typeof event === "object") {

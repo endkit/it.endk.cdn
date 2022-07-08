@@ -148,7 +148,13 @@ window.on.touch = {
     var className = target.className;
     var classList = target.classList;
 
-    iii.llips.is(target);
+    var elem = target.closest("[data-press]");
+    if (elem) {
+      var x = eval(elem.dataset.press);
+      typeof x === "function" ? x() : null;
+    }
+  
+    //iii.llips.is(target);
   }),
   (window.on["touch"]["tap"] = async (event) => {
     //console.log("tap",{iframe:self===top},event.type);

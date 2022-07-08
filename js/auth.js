@@ -149,7 +149,7 @@ window.auth = {
               .then(e => {
                 var results = JSON.parse(e), user = auth.user();
                 console.log("auth.account.setup", {results, user});
-                resolve(user);
+                resolve({email,password});
               })
               .catch(function (error) {        
                 console.log('auth.js auth.account.setup user.create catch',{error});

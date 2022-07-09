@@ -121,12 +121,8 @@ window.auth = {
             resolve(e.user);
           })
           .catch(function (error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            alert(errorMessage);
             console.log(error.code + ": " + error.message);
             reject(error);
-            //notify({ msg: "There is no user matching these credentials" }, 2);
           });
       });
       

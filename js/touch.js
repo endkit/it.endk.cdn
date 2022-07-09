@@ -21,14 +21,25 @@ window.touch = {
         type: null
     },
     handler: (e,event=e,type=event.type) => {
-
-        //console.log({e});
+        
+        if(e && e.touches) {
+          if(e.changedTouches[0]) {
+            //console.log('touchEvent',{e},e.changedTouches[0]);
+            var changedTouches = e.changedTouches[0];
+          } 
+          else {
+            //console.log('mouseEvent',{e},e.changedTouches.item(0));
+            var changedTouches = e.changedTouches.item(0);
+          }
+          //console.log('changedTouches',{changedTouches});
+        }
+      
 
         if (type === "touchstart") {
-          //console.log('touch.drag', e, [e.touches[0].clientX, touch.local.drag.xOffset]);
+          //console.log('touch.drag', e, [changedTouches[0].clientX, touch.local.drag.xOffset]);
 
-          touch.local.drag.initialX = e.touches[0].clientX - touch.local.drag.xOffset;
-          touch.local.drag.initialY = e.touches[0].clientY - touch.local.drag.yOffset
+          touch.local.drag.initialX = changedTouches.clientX - touch.local.drag.xOffset;
+          touch.local.drag.initialY = changedTouches.clientY - touch.local.drag.yOffset
 
           if (e.target.closest('[data-drag]')) {
             touch.local.drag.elem = e.target.closest('[data-drag]')
@@ -40,8 +51,8 @@ window.touch = {
         if (touch.local.drag.ging) {
 
             if (type === "touchmove") {
-              touch.local.drag.currentX = e.touches[0].clientX - touch.local.drag.initialX;
-              touch.local.drag.currentY = e.touches[0].clientY - touch.local.drag.initialY;
+              touch.local.drag.currentX = changedTouches.clientX - touch.local.drag.initialX;
+              touch.local.drag.currentY = changedTouches.clientY - touch.local.drag.initialY;
             }
 
             touch.local.drag.xOffset = touch.local.drag.currentX;
@@ -51,7 +62,7 @@ window.touch = {
 
         if(type === 'touchstart') {
             touch.local.drag.type = type;
-            touch.local.drag.start.x = event.touches[0].pageX, touch.local.drag.start.y = event.touches[0].pageY;
+            touch.local.drag.start.x = changedTouches.pageX, touch.local.drag.start.y = changedTouches.pageY;
             if(touch.local.dbl) {
               clearTimeout(touch.local.dbl);
               touch.local.dbl = null;
@@ -74,8 +85,8 @@ window.touch = {
           //console.log('drag',touch.local.drag);
           clearTimeout(touch.local.dbl);
           touch.local.drag.offset = {},
-          touch.local.drag.offset.x = Math.abs(touch.local.drag.start.x - event.touches[0].pageX),
-          touch.local.drag.offset.y = Math.abs(touch.local.drag.start.y - event.touches[0].pageY);
+          touch.local.drag.offset.x = Math.abs(touch.local.drag.start.x - changedTouches.pageX),
+          touch.local.drag.offset.y = Math.abs(touch.local.drag.start.y - changedTouches.pageY);
           touch.local.dbl = null;
           touch.local.type = 'drag';
           //document.body.dataset.touch = touch.local.type;
@@ -109,6 +120,7 @@ window.touch = {
         document.body.dataset.touch = t;
       },
       drag: (e,target,t="drag") => {
+        //console.log(58,'touch.events',{t});
         document.body.dataset.touch = t;
       },
       press: (e,target,t="press") => {
@@ -116,7 +128,7 @@ window.touch = {
         document.body.dataset.touch = t;
       },
       tap: (e,target,t="tap") => {
-        console.log(58,'touch.events',{t});
+        //console.log(58,'touch.events',{t});
         document.body.dataset.touch = t;
       }
     }

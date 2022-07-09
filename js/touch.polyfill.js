@@ -183,7 +183,7 @@
       touch.target  = evt.target;
 
       // TODO: Expand for multi-touch environments such as IE10
-      TOUCH_LIST._items = CHANGED_TOUCHES._items = TARGET_TOUCHES._items = [touch];
+      TOUCH_LIST._items = CHANGED_TOUCHES = TARGET_TOUCHES._items = [touch];
 
       return touch;
   }

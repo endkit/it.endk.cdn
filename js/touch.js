@@ -22,18 +22,7 @@ window.touch = {
     },
     handler: (e,event=e,type=event.type) => {
         
-        if(e && e.touches) {
-          if(e.changedTouches[0]) {
-            //console.log('touchEvent',{e},e.changedTouches[0]);
-            var changedTouches = e.changedTouches[0];
-          } 
-          else {
-            //console.log('mouseEvent',{e},e.changedTouches.item(0));
-            var changedTouches = e.changedTouches.item(0);
-          }
-          //console.log('changedTouches',{changedTouches});
-        }
-      
+        var changedTouches = e.changedTouches[0];      
 
         if (type === "touchstart") {
           //console.log('touch.drag', e, [changedTouches[0].clientX, touch.local.drag.xOffset]);

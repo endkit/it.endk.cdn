@@ -49,8 +49,6 @@ script > ~ { display: none; }
 column { flex-direction: column; }
 row { flex-direction: row; }
 
-error ~ * { display: none; }
-
 card {display: block;max-width: 100%;overflow: visible;}
 body[data-tap="focal.tap.builder(target)"] card > section:empty { min-height: 50px; }
 card > section:empty {/* width: calc(100% - 0px); *//* min-height: 46px; *//* margin: 2px auto 0; */background: transparent;/* border: 2px dashed #32cd32; */}
@@ -3198,6 +3196,10 @@ peel:hover:before,peel:hover:after{box-shadow:0 24px 30px rgba(0, 0, 0, .3);}
   margin-left: 20px;
 }
 /*Cascading*/
+
+
+error ~ * { display: none; }
+
 
 .hide, [data-display="none"] {display: none;}
 

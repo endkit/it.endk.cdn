@@ -6,26 +6,15 @@ window.auth = {
     messagingSenderId: "",
     appId: ""
   },
-  change: (user) => {
-    
+  change: (user) => {    
+    console.log('auth.change',{user});
     return new Promise(async (resolve, reject, url) => {
-      if (user) {
-        //var jwt = await auth.getIdToken();
-        console.log(123,{user});
-        //ajax(api.endpoint() + "/auth/firebase/verify", {
-          //data: { jwt },
-          //dataType: "POST"
-        //}).then((d, data = JSON.parse(d)) => {
-          //console.log('auth.js',data)
-          dom.body.dataset.uid = user.uid;
-          resolve();
-        //}).catch((e) => {
-          
-          //reject(e);
-        //});
+      if(user) {
+        dom.body.dataset.uid = user.uid;
       } else {
-        resolve(window.location.pathname);
+        dom.body.removeAttribute('data-uid');
       }
+      resolve(user);
     });
   },
   check: (uid) => {

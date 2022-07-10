@@ -676,6 +676,7 @@ aside ~ main { position: fixed; }
 .bg-ddd {background: #ddd;}
 .bg-d2 { background: #d2d2d2; }
 .bg-ef {background: #efefef;}
+.bg-fa { background: #fafafa; }
 .bg-lightgray {background: #bbb;}
 .bg-gray, .bg-777 {background: #777;}
 .bg-darkgray {background: #333;}

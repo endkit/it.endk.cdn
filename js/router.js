@@ -48,7 +48,7 @@ String.prototype.router = async function(params) {
       
       var page = GET[GET.length-1];
       
-      mvc.v(route).then(async(s) => {
+      mvc.v(route).then(async(route) => {
 
           route.root = getRoot($('pages[data-pages]'));
 

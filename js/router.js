@@ -31,8 +31,6 @@ String.prototype.router = async function(params) {
   var tabs = await rout.ed.vars(rout.ed.dir(path));
   var goto = rout.ed.url(tabs);
   var route = paths = rout.e(goto);
-  document.body.dataset.path = route.path;
-  document.body.dataset.page = page = route.page;
   window.GET = paths.GOT;
 
   var pop = a ? a.pop : null;
@@ -48,7 +46,8 @@ String.prototype.router = async function(params) {
       
       var page = GET[GET.length-1];
       
-      mvc.v(route).then(async(route) => {
+      mvc.v(route)
+        .then(async(route) => {
 
           route.root = getRoot($('pages[data-pages]'));
 
@@ -66,29 +65,30 @@ String.prototype.router = async function(params) {
           document.body.classList.contains("loading") ? document.body.classList.remove("loading") : null;
 
           rout.es.push(paths.path);
+          await rout.ed.bang(route);
+        
+          console.log('router.js resolve', 200, route);        
+        
           if(!pop) {
             if(!["blob:"].includes(window.location.protocol)) {
-              var link = paths.path;
-              link = goto.split('?')[0].split('#')[0];
-              history.pushState(goto,'',goto);
+              var link = route.path;           
+              history.pushState(link,'',link);
             }
           }
-
+              
+          window.GET = route.GOT;
+        
+          document.body.dataset.path = route.path;
+          document.body.dataset.page = page = route.page;
           if(uri) {
             var search = uri.split("?").length > 1 ? uri.split("?")[1].split("#")[0] : null;
             var hash = uri.split("?").length > 1 ? uri.split('#')[1] : null;
             search ? search = document.body.dataset.search = "?"+search : document.body.removeAttribute("data-search");
             hash ? hash = document.body.dataset.hash = "#"+hash: document.body.removeAttribute("data-hash");
           }
-
-          await rout.ed.bang(route);
         
-          got = paths.GOT = tabs;
-          paths = rout.e(rout.ed.url(got));
-          window.GET = paths.GOT;
-          console.log('router.js resolve', 200, route);
           resolve(route);
-        
+
         })
         .catch((e) => {
           console.log(404, e);

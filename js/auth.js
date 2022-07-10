@@ -144,7 +144,7 @@ window.auth = {
         
         if (displayName && username && email && password) {
           if(auth.isEmail(email)) {
-            ajax(api.endpoint+'/v1/users/create', {dataType: "POST", data})
+            ajax(api.endpoint+'/v1/users', {dataType: "POST", data})
               .then(e => {
                 var results = JSON.parse(e), user = auth.user();
                 console.log("auth.account.setup", {results, user});

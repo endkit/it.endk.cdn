@@ -1467,6 +1467,10 @@ iframe[data-device="mobile"] { width: 320px; }
 
 .object-position-top { object-position: top; }
 
+.padding-30px { padding: 30px; }
+.padding-36px { padding: 36px; }
+.padding-40px { padding: 40px; }
+
 .padding-bottom { padding-bottom: 0; }
 .padding-bottom-30px { padding-bottom: 30px; }
 .padding-bottom-32px { padding-bottom: 32px; }

@@ -86,7 +86,8 @@ String.prototype.router = async function(params) {
           got = paths.GOT = tabs;
           paths = rout.e(rout.ed.url(got));
           window.GET = paths.GOT;
-          resolve(paths);
+          console.log('router.js resolve', 200, route);
+          resolve(route);
         
         })
         .catch((e) => {

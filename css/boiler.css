@@ -951,43 +951,7 @@ aside ~ main { position: fixed; }
   [data-mobile-height="100%-20px"] {height: calc(100% - 20px);}
 }
 [data-height="100vh"] {height: 100vh;}
-.min-height-auto, [data-min-height="auto"] { min-height: auto; }
-.min-height-50px, [data-min-height="50px"] {min-height: 50px;}
-.min-height-100px, [data-min-height="100px"] { min-height: 100px; }
-.min-height-160px, [data-min-height="160px"] { min-height: 160px; }
-.min-height-240px, [data-min-height="240px"] {min-height: 240px;}
-.min-height-800px, [data-min-height="360px"] {min-height: 360px;}
-.min-height-480px, [data-min-height="480px"] {min-height: 480px;}
-.min-height-640px, [data-min-height="640px"] {min-height: 640px;}
-.min-height-800px, [data-min-height="800px"] {min-height: 800px;}
-.min-height-100pc, [data-min-height="100%"] {min-height: 100%;/* min-height: 100vh; */}
-.min-height-67pc, [data-min-height="200%/3"] {min-height: calc(200vh/3);}
-.min-height-two-thirds, [data-min-height="calc(200%/3)"] {min-height: calc(200%/3);}
-.min-height-50vh, [data-min-height="50vh"] {min-height: 50vh;}
-.min-height-100vh, [data-min-height="100vh"] {height: 100vh;}
-.min-height-100vh-240px, [data-min-height="100%-240px"] {height: calc(100vh - 240px);}
-@media screen and (max-width: 480px) {
-  [data-mobile-min-height="auto"] { min-height: auto; }
-}
 
-@media screen and (max-width: 480px) {
-  .mobile-height-100pc { height: calc(100%); }
-  
-  .mobile-height-100pc-50px { height: calc(100% - 50px); }
-  .mobile-height-100pc-60px { height: calc(100% - 60px); }
-  .mobile-height-100pc-70px { height: calc(100% - 70px); }
-  .mobile-height-100pc-80px { height: calc(100% - 80px); }
-  .mobile-height-100pc-90px { height: calc(100% - 90px); }
-
-
-  [data-mobile-height="100%-20px"] { height: calc(100% - 20px); }
-  [data-mobile-height="100%-40px"] { height: calc(100% - 40px); }
-
-  [data-mobile-height="100%-10px"] { height: calc(100% - 10px); }
-  [data-mobile-height="100%-20px"] { height: calc(100% - 20px); }
-  [data-mobile-height="100%-40px"] { height: calc(100% - 40px); }
-  [data-mobile-height="100%-55px"] { height: calc(100% - 55px); }
-}
 .height-300px { height: 300px; }
 
 [data-height="auto"] { height: auto; }
@@ -1422,6 +1386,45 @@ iframe[data-device="mobile"] { width: 320px; }
 .min-height-240px { min-height: 240px; }
 .min-height-480px { min-height: 480px; }
 .min-height-full { min-height: calc(100% - 40px);}
+.min-height-auto, [data-min-height="auto"] { min-height: auto; }
+.min-height-50px, [data-min-height="50px"] {min-height: 50px;}
+.min-height-100px, [data-min-height="100px"] { min-height: 100px; }
+.min-height-160px, [data-min-height="160px"] { min-height: 160px; }
+.min-height-240px, [data-min-height="240px"] {min-height: 240px;}
+.min-height-800px, [data-min-height="360px"] {min-height: 360px;}
+.min-height-480px, [data-min-height="480px"] {min-height: 480px;}
+.min-height-640px, [data-min-height="640px"] {min-height: 640px;}
+.min-height-800px, [data-min-height="800px"] {min-height: 800px;}
+.min-height-100pc, [data-min-height="100%"] {min-height: 100%;/* min-height: 100vh; */}
+.min-height-67pc, [data-min-height="200%/3"] {min-height: calc(200vh/3);}
+.min-height-two-thirds, [data-min-height="calc(200%/3)"] {min-height: calc(200%/3);}
+.min-height-50vh, [data-min-height="50vh"] {min-height: 50vh;}
+.min-height-100vh, [data-min-height="100vh"] {height: 100vh;}
+.min-height-100vh-240px, [data-min-height="100%-240px"] {height: calc(100vh - 240px);}
+@media screen and (max-width: 768px) {
+  .tablet-min-height-auto { min-height: auto; }
+}
+@media screen and (max-width: 480px) {
+  [data-mobile-min-height="auto"] { min-height: auto; }
+}
+@media screen and (max-width: 480px) {
+  .mobile-height-100pc { height: calc(100%); }
+  
+  .mobile-height-100pc-50px { height: calc(100% - 50px); }
+  .mobile-height-100pc-60px { height: calc(100% - 60px); }
+  .mobile-height-100pc-70px { height: calc(100% - 70px); }
+  .mobile-height-100pc-80px { height: calc(100% - 80px); }
+  .mobile-height-100pc-90px { height: calc(100% - 90px); }
+
+
+  [data-mobile-height="100%-20px"] { height: calc(100% - 20px); }
+  [data-mobile-height="100%-40px"] { height: calc(100% - 40px); }
+
+  [data-mobile-height="100%-10px"] { height: calc(100% - 10px); }
+  [data-mobile-height="100%-20px"] { height: calc(100% - 20px); }
+  [data-mobile-height="100%-40px"] { height: calc(100% - 40px); }
+  [data-mobile-height="100%-55px"] { height: calc(100% - 55px); }
+}
 
 .min-width-20px { min-width: 20px; }
 .min-width-40px { min-width: 40px; }

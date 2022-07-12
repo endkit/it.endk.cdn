@@ -1529,6 +1529,7 @@ iframe[data-device="mobile"] { width: 320px; }
   .xga-padding-top-50px { padding-top: 50px; }
   .xga-padding-top-60px { padding-top: 60px; }
   .xga-padding-left-0 { padding-left: 0}
+  .xga-padding-y-0 { padding-top: 0; padding-bottom: 0; }
 }
 
 .padding-y-5px { padding-top: 5px; padding-bottom: 5px; }

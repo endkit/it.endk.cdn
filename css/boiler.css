@@ -1525,13 +1525,6 @@ iframe[data-device="mobile"] { width: 320px; }
 .padding-x-80px {padding: 0 80px;}
 .padding-x-90px {padding: 0 90px;}
 .padding-x-100px {padding: 0 100px;}
-@media screen and (max-width: 1024px) {
-  .xga-padding-top-50px { padding-top: 50px; }
-  .xga-padding-top-60px { padding-top: 60px; }
-  .xga-padding-left-0 { padding-left: 0}
-  .xga-padding-y-0 { padding-top: 0; padding-bottom: 0; }
-}
-
 .padding-y-5px { padding-top: 5px; padding-bottom: 5px; }
 .padding-y-10px { padding-top: 10px; padding-bottom: 10px; }
 .padding-y-20px { padding-top: 20px; padding-bottom: 20px; }
@@ -1547,10 +1540,19 @@ iframe[data-device="mobile"] { width: 320px; }
 .padding-y-100px { padding-top: 100px; padding-bottom: 100px; }
 .padding-y-110px { padding-top: 110px; padding-bottom: 110px; }
 .padding-y-120px { padding-top: 120px; padding-bottom: 120px; }
+body[data-auth="true"] .isauth-padding-top-50px { padding-top: 50px; }
 @media screen and (max-width: 1000px) {
   .dw1000px-padding-y-10px { padding-top: 10px; padding-bottom: 10px; }
   .dw1000px-padding-y-20px { padding-top: 20px; padding-bottom: 20px; }
 }
+@media screen and (max-width: 1024px) {
+  .xga-padding-top-50px { padding-top: 50px; }
+  .xga-padding-top-60px { padding-top: 60px; }
+  .xga-padding-left-0 { padding-left: 0}
+  .xga-padding-y-0 { padding-top: 0; padding-bottom: 0; }
+  .xga-padding-0 { padding: 0; }
+}
+
 @media screen and (max-width: 480px) {
     .mobile-padding-y-10px { padding-top: 10px; padding-bottom: 10px; }
     .mobile-padding-x-20px { padding-left: 20px; padding-right: 20px; }
@@ -1559,15 +1561,8 @@ iframe[data-device="mobile"] { width: 320px; }
     .mobile-padding-x-10px { padding-left: 10px; padding-right: 10px; }
     .mobile-padding-left-0 { padding-left: 0; }
 }
-
 @media screen and (max-width: 960px) {
   .dw960px-padding-bottom-0 { padding-bottom: 0; }
-}
-
-body[data-auth="true"] .isauth-padding-top-50px { padding-top: 50px; }
-
-@media screen and (max-width: 1024px) {
-  .xga-padding-0 { padding: 0; }
 }
 
 .pills > * {margin: 0 20px 0 0;}

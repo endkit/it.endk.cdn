@@ -1027,6 +1027,7 @@ img {object-fit: cover;}
 .margin-10px { margin: 10px; }
 .margin-bottom { margin-bottom: auto; }
 .margin-bottom-20px {/* margin-bottom: 20px !important; */}
+.margin-bottom-24px { margin-bottom: 24px; }
 .margin-bottom-40px { margin-bottom: 40px !important; }
 .margin-bottom-50px {margin-bottom: 50px;}
 .margin-bottom-60px { margin-bottom: 60px !important; }
@@ -1062,6 +1063,7 @@ img {object-fit: cover;}
 .margin-y-5px { margin-top: 5px; margin-bottom: 5px; }
 .margin-y-10px { margin-top: 10px; margin-bottom: 10px; }
 .margin-y-20px { margin-top: 20px; margin-bottom: 20px; }
+.margin-y-24px { margin-top: 24px; margin-bottom: 24px; }
 .margin-y-30px { margin-top: 30px; margin-bottom: 30px; }
 .margin-y-40px { margin-top: 40px; margin-bottom: 40px; }
 .margin-y-50px { margin-top: 50px; margin-bottom: 50px; }

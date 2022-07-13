@@ -2956,13 +2956,14 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
 .width-300px {width: 300px;}
 .width-320px, [data-width="320px"] {width: 320px;}
 .width-375px, [data-width="375px"] {width: 375px;}
+.width-350px, [data-width="350px"] {width: 350px;}
+.width-360px, [data-width="360px"] {width: 360px;}
 .width-768px, [data-width="768px"] {width: 768px;}
 [data-width="100%-320px"], [data-width="calc(100%-320px)"] {width: calc(100% - 320px);}
 [data-width="100%-40px"], [data-width="calc(100%-40px)"] {width: calc(100% - 40px);}
 [data-width="100%-50px"], [data-width="calc(100%-50px)"] {width: calc(100% - 50px);}
 [data-width="100%"] {width: calc(100%);}
 [data-width="880px"] {width: calc(880px);}
-.width-375px {width: 375px;}
 .width-425px, [data-width="425px"] { width: 425px; }
 .width-480px { width: 480px; }
 .width-600px, [data-width="600px"] { width: 600px; }

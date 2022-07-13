@@ -1261,6 +1261,7 @@ iframe[data-device="mobile"] { width: 320px; }
 @media screen and (max-width: 768px) {
   .tablet-margin-auto { margin: auto; }
   .tablet-margin-bottom-0 { margin-bottom: 0; }
+  .tablet-margin-bottom-10px { margin-bottom: 10px; }
   .tablet-margin-bottom-100px { margin-bottom: 100px; }
   .tablet-margin-bottom-150px { margin-bottom: 150px; }
   .tablet-margin-bottom-200px { margin-bottom: 200px; }

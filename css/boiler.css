@@ -1835,6 +1835,7 @@ empty:hover { box-shadow: 0 10px 10px 0 #ff3b30; }
 @media screen and (max-width: 768px) {
   .dw1024px-width-full {width: 100% !important;}
   .tablet-width-one-third, [data-width="calc(100%/3)"] {width: calc(100%/3);}
+  .tablet-width-25pc, [data-width="25%"] {width: 25%;}
 }
 
 .z-index-1 { z-index: 1; }
@@ -3282,6 +3283,9 @@ error ~ * { display: none; }
 .justify-left { justify-content: left; }
 .flex-wrap { flex-wrap: wrap; }
 .flex-wrap-unset {flex-wrap: unset !important;}
+@media screen and (max-width: 768px) {
+  .tablet-justify-center {justify-content: center;}
+}
 @media screen and (max-width: 480px) {
   .mobile-justify-evenly {justify-content: space-evenly;}
 }

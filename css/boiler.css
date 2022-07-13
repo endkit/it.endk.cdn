@@ -913,6 +913,7 @@ aside ~ main { position: fixed; }
 .height-640px, [data-height="640px"] {height: 640px;}
 .height-25pc, [data-height="25%"] {height: calc(25vh);}
 .height-50pc, [data-height="50%"] {height: 50%;}
+.height-75pc, [data-height="75%"] {height: 75%;}
 .height-two-thirds, [data-height="calc(200%/3)"] {height: calc(200%/3);}
 .height-50vh, [data-height="50vh"] { height: calc(50vh); }
 .height-100pc-20px { height: calc(100% - 20px); }

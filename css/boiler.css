@@ -206,6 +206,7 @@ inline-block, span-div { display: inline-block; }
 
 input{background:transparent;border:0;padding:0;}
 input::placeholder { opacity: 0.5; }
+input.placeholder-opacity-1::placeholder { opacity: 1; }
 input[type="file"] { display: none; }
 input[type="submit"]:not([value]) { display: none; }
 

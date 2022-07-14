@@ -452,6 +452,15 @@ empty > section { width: 100%; }
 .border-top-left-radius-20px {border-top-left-radius: 20px;}
 .border-top-right-radius-20px {border-top-right-radius: 20px;}
 
+.border-top-left-radius-30px {border-top-left-radius: 30px;}
+.border-top-right-radius-30px {border-top-right-radius: 30px;}
+
+.border-top-left-radius-40px {border-top-left-radius: 40px;}
+.border-top-right-radius-40px {border-top-right-radius: 40px;}
+
+.border-top-left-radius-50px {border-top-left-radius: 50px;}
+.border-top-right-radius-50px {border-top-right-radius: 50px;}
+
 /*Border Radius*/
 .border-radii-50pc > * { border-radius: 50%; }
 

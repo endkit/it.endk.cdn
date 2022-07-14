@@ -63,9 +63,6 @@ card > section > group {/* border: 0px dashed #77777780; *//* border: 2px dashed
 card > section > group.focus {border: 2px solid #777;}
 
 box {vertical-align: top;}
-box:empty { min-width: 50px; min-height: 50px; background: transparent; border: 2px dotted #0096c7; }
-box:not(.focus) > section:empty {/* min-width: 46px; *//* min-height: 46px; *//* background: transparent; *//* border: 2px dotted #0096c7; */}
-box > section picture:empty {background-repeat: no-repeat;background-position: center;}
 
 box > section text:empty {/* min-height: 50px; */}
 
@@ -3371,3 +3368,8 @@ error ~ * { display: none; }
 @media screen and (max-width: 480px) {
   .mobile-hide { display: none; }
 }
+
+/*EDITOR*/
+body.editor box:empty { min-width: 50px; min-height: 50px; background: transparent; border: 2px dotted #0096c7; }
+body.editor box > section picture:empty {background-repeat: no-repeat;background-position: center;}
+/*EDITOR*/

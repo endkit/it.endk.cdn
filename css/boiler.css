@@ -209,7 +209,7 @@ input::placeholder { opacity: 0.5; }
 input[type="file"] { display: none; }
 input[type="submit"]:not([value]) { display: none; }
 
-.placeholder-color-fff { color: white; }
+.placeholder-color-fff::placeholder { color: white; }
 .placeholder-opacity-1::placeholder { opacity: 1; }
 
 body > main {/* height: calc(100% - 50px); */}

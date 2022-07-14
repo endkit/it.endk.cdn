@@ -1,475 +1,500 @@
-window.webcam = {
-    global: {
-        width: 1920,
-        height: 0
-    },
-    audio: null,
-    blank: event => {
-        console.log(event);
-    },
-    clear: target => {
+String.prototype.router = async function(params) {
 
-        var cam = dom.camera;
+  var a = params;
 
-        //CAMERA
-        cam.classList.remove('snap');
-        cam.closest('.camera').classList.remove('snap');
-        cam.closest('.create-form').classList.remove('snap');
+  var cookie = a ? a.cookie : null;
+  if(cookie) {
+    if(localStorage) {
+      var json = JSON.parse(cookie);
+      var key = Object.keys(json)[0];
+      var val = Object.values(json)[0];
+      var get = localStorage.getItem(key);
 
-        //PHOTO
-        dom.camera.find('#camera-photo img').removeAttribute('src');
+      if(get) {
+        localStorage.removeItem(key);
+        //console.log(9,{json,key,val});
+      }
 
-        //VIDEO
-        webcam.record.chunks = [];
-        dom.camera.find('#camera-video').srcObject = undefined;
-        dom.camera.find('#camera-video').removeAttribute('src');
+      var data = localStorage[cookie];
+    }
+  }
 
-        //AUDIO
-        //webcam.audio ? webcam.audio.destroy() : null;
+  //Process URL Logic
+  var uri = this.toString();
+  var path = uri ? uri : a.href;
+  var toURL = new URL(path,location.origin);
+  path = toURL.pathname + toURL.search + toURL.hash;
+  //self === top ? null : alert(path);
+  window.paths = rout.e(path);
+  var GOT = paths.GOT;
+  var root = GOT[0];
+  var tabs = await rout.ed.vars(rout.ed.dir(path));
+  var goto = rout.ed.url(tabs);
+  var route = paths = rout.e(goto);
+  window.GET = paths.GOT;
 
-        //FILE
-        var html = dom.file.outerHTML; console.log({file},file.parentNode);
-               
-    },
-    constraints: {
-        vertical: { video: {width: {exact: 1080}, height: {exact: 1920}} },
-        horizontal: {
-            video: {
-                width: { min: 640, ideal: 1920, max: 4096 },
-                height: { min: 400, ideal: 1080, max: 2160 },
-                aspectRatio: { ideal: 1.7777777778 },
-                facingMode: 'environment'
+  var pop = a ? a.pop : null;
+
+  await rout.ed.bang(route);
+
+  //console.log(route);
+
+  return new Promise(async function (resolve, reject) {
+    if(route) {
+
+      //console.log('truly',route,GET.length);
+      
+      var page = GET[GET.length-1];
+      
+      mvc.v(route)
+        .then(async(route) => {
+
+          route.root = getRoot($('pages[data-pages]'));
+
+          var state = s ? s : route;
+          var path = state.path;
+          var page = state.page;
+          var m = window.location.origin;
+          var url = new URL(state.path, m === "null" ? "https://localhost" : m);
+          var search = url.search;
+          var path = url.pathname.replace(/\/?$/, "/");
+          var pages =  dom.body.find('pages[data-pages="'+route.root+'"]');
+          var page = dom.body.find('page[data-page="'+route.page+'"]');
+          var vp = page ? page : pages;
+
+          document.body.classList.contains("loading") ? document.body.classList.remove("loading") : null;
+
+          rout.es.push(paths.path);
+          await rout.ed.bang(route);
+        
+          console.log('router.js resolve', 200, route);        
+        
+          if(!pop) {
+            if(!["blob:"].includes(window.location.protocol)) {
+              var link = route.path;           
+              history.pushState(link,'',link);
             }
-        }
-    },
-    control: {
-      play: (paths) => {
-        return new Promise((resolve, reject) => { //console.log(link,arrayRemove(link,""));
-          var camera = byId('camera');
-          if(camera) {
-            var video = camera.find("video");
-
-            if(window.width < window.height) { constraints = webcam.constraints.horizontal; }
-            else { constraints = webcam.constraints.horizontal; }
-
-            navigator.mediaDevices.getUserMedia(constraints).then(async stream => {
-                var track = stream.getVideoTracks()[0];
-                video.srcObject = webcam.stream = stream;
-                video.onloadedmetadata = data => { 
-                  console.log({video,track});
-                  //alert('play');
-                  //var capabilities = track.getCapabilities(); console.log({capabilities});
-                  //if(capabilities.zoom) { }
-                  //if(capabilities.torch) { }
-
-                  //webcam.enumerate();
-                  //alert('play');
-
-                  //$(all('.io')).addClass('i').removeClass('o');
-                  dom.body.dataset.webcam = true;
-                  $(camera).addClass('playing')[0].find('video').play();
-                  camera.dataset.mode = 'camera';
-                  resolve({paths});
-                }
-            }).catch(err => {
-                $(camera).removeClass('playing');
-                dom.body.dataset.cam = false;
-                resolve({paths,err});
-            });
           }
-        });
-    },
-      stop: (paths) => {
-        return new Promise((resolve, reject) => {
-          if(webcam.stream) {
-            var camera = byId('camera');
-            var video = byId('webcam');
-            var cam = byId('video');
-            webcam.stream.getTracks().forEach(track => track.stop());
-            $(camera).removeClass('playing');
-            //$(all('.io')).removeClass('i').addClass('o');
-            dom.body.dataset.webcam = false;
+              
+          window.GET = route.GOT;
+        
+          document.body.dataset.path = route.path;
+          document.body.dataset.page = page = route.page;
+          if(uri) {
+            var search = uri.split("?").length > 1 ? uri.split("?")[1].split("#")[0] : null;
+            var hash = uri.split("?").length > 1 ? uri.split('#')[1] : null;
+            search ? search = document.body.dataset.search = "?"+search : document.body.removeAttribute("data-search");
+            hash ? hash = document.body.dataset.hash = "#"+hash: document.body.removeAttribute("data-hash");
           }
+        
+          resolve(route);
+
+        })
+        .catch((e) => {
+          console.log(404, e);
+          reject(e);
         });
-      },
-      switch: () => {
-        navigator.mediaDevices.enumerateDevices().then(devices => { //console.log({devices});
-            var videos = [];
-            if(devices.length > 0) {
-                var i = 0, ii = 0; while(i < devices.length) {
-                    var track = devices[i];
-                    var kind = track.kind;
-                    if(kind === 'videoinput') {
-                        var tracks = webcam.stream.getTracks();
-                        for(var iii = 0; iii < tracks.length; iii++){
-                            if(track.deviceId === tracks[iii].getSettings().deviceId) {
-                                var id = track.deviceId;
-                            }
-                        }                    
-                        videos[ii] = track; ii++; 
-                    }
-                i++; }
-                var next = objByKeyVal(videos,'deviceId',id); 
-                var v = parseInt(keyByVal(videos,next))+1;
-                var w = videos[v===videos.length?0:v].deviceId;
-                const videoConstraints = {};
-                videoConstraints.deviceId = { exact: w };
-                const constraints = {
-                    video: videoConstraints,
-                    audio: false
-                };
-                navigator.mediaDevices
-                    .getUserMedia(constraints)
-                    .then(stream => {
-                      var camera = byId('camera');
-                      var video = camera.find('video');
-                      webcam.stream = stream;
-                      video.srcObject = stream;
-                      return navigator.mediaDevices.enumerateDevices();
-                    });
-            }
-        });
-      },
-    },
-    canplay: event => {
-        console.log('canplay');
-        var video = event.target;
-        if(!video.classList.contains('canplay')) {
-            var width = webcam.global.width;
-            var height = video.videoHeight / (video.videoWidth/width);
-            video.setAttribute('width', width);
-            video.setAttribute('height', height);
-            canvas.setAttribute('width', width);
-            canvas.setAttribute('height', height);
-            video.classList.add('canplay');
-        }
-    },
-    enumerate: () => {
 
-        navigator.mediaDevices.enumerateDevices().then(devices => { console.log({devices});
-            var videos = [];
-            if(devices.length > 0) {
-                var i = 0, ii = 0;
-                var html = ``;
-                while(i < devices.length) {
-                    var track = devices[i];
-                    var kind = track.kind;
-                    if(kind === 'videoinput') { 
-                        var tracks = webcam.stream.getTracks();
-                        for(var iii = 0; iii < tracks.length; iii++){
-                            if(track.deviceId === tracks[iii].getSettings().deviceId) {
-                                var j = iii; //alert(j);
-                                var id = track.deviceId;
-                                console.log(tracks,{iii,j});
-                            }
-                            //console.log(track.deviceId, tracks[iii].getSettings().deviceId)
-                        }
-                        html += `<div>`+track.deviceId+`</div>`;               
-                        videos[ii] = track; ii++; 
-                    }
+    } 
+    else {
+      reject({ code: 400 });
+    }
+  });
+};
 
-                i++; }
-                byId('flip-cam').innerHTML = html;
-            }
-        });
-    },
-    file: input => {
+window.rout = {};
+window.rout.e = (state,w) => {
+  var win = w ? window : window; //console.log({GOT,state});
+  var GOT = rout.ed.dir(state.split('#')[0].split('?')[0], 2);
+  var n = 0,
+    arr1 = [],
+    arr2 = rout.ed.dir(state.split('#')[0].split('?')[0]);
+  var root = GOT[0];
 
-        var files = input.files;
-        //webcam.media = files[0];
-
-        if(files.length > 0) {
-            if(files.length === 1) {
-                var reader = new FileReader();
-                var file = files[0];
-                console.log({file});
-                reader.readAsDataURL(file);
-                reader.onload = () => onLoad(reader.result,file.type);
-                reader.onloadstart = () => { console.log(); };
-                reader.onprogress = evt => onProgress(evt);
-                reader.onabort = () => { };
-                reader.onerror = () => console.log(reader.error);
-            }
-        }
-        function onLoad(file,type) { console.log({file,type});
-            //var format = byId('header-create').dataset.tab;
-            var format = type; //alert(format);
-            if(format.includes('image')) {
-                var canvas = byId('canvas');
-                var video = byId('camera-video');
-                var width = webcam.global.width;
-                var photo = byId('camera-photo');
-                var context = canvas.getContext('2d');
-                var img = new Image();
-                img.src = file;
-                img.addEventListener("load", () => { //console.log({img});
-                    webcam.global.width = photo.width = canvas.width = width;
-                    webcam.global.height = photo.height = canvas.height = height = img.height/(img.width/width);
-                    context.drawImage(img, 0, 0, width, height); //console.log({width,height});
-                    if(width && height) {
-                        canvas.width = width;
-                        canvas.height = height;
-                        var png = canvas.toDataURL(type);
-                        context.drawImage(img, 0, 0, width, height);
-                        webcam.media = file;
-                        dom.camera.classList.add('snap');
-                        photo.find('img').dataset.type = type;
-                        var cam = byId('video');
-                        cam.closest('.camera').classList.add('snap');
-                        cam.closest('.create-form').classList.add('snap');
-                        dom.camera.find('#camera-photo').find('img').src = file;
-                    }
-                });
-            }
-            if(format.includes('video')) {
-                var cam = byId('video');
-                dom.camera.find('#camera-video').src = file
-                //byId('camera-download').href = file;
-                cam.closest('.camera').classList.add('snap');
-                cam.closest('.create-form').classList.add('snap');
-            }
-            if(format.includes('audio')) {
-                webcam.media = file;
-                webcam.audio ? webcam.audio.destroy() : null;
-                webcam.audio = WaveSurfer.create({container: '#camera-photo .waveform', cursorColor: '#777', progressColor: '#0096c7', responsive: true, waveColor: '#fff'});
-                webcam.audio.loadBlob(files[0]);
-                webcam.audio.on('ready',() => { 
-                    webcam.audio.play();
-                    byId('create-audio-play').classList.add('ing');
-                });
-                webcam.audio.on('play',() => {
-                    byId('create-audio-play').classList.add('ing');
-                });
-                webcam.audio.on('pause',() => { 
-                    byId('create-audio-play').classList.remove('ing');
-                });
-                //dom.camera.classList.add('snap');
-            }
-            byId('file').remove();
-            byId('webcam').insertAdjacentHTML('afterbegin','<input id="file" style="display:none;" type="file" onchange="webcam.file(this);">');
-            dom.file = byId('webcam').firstChild;
-        }
-        function onProgress(evt) {
-            console.log({evt});
-            if (evt.lengthComputable) {
-                var percentLoaded = Math.round((evt.loaded / evt.total) * 100);
-                if(percentLoaded < 100) { console.log(percentLoaded); }
-            }
-        }
-
-    },
-    media: null,
-    io: cam => {
-        return new Promise((resolve,reject) => {
-            //dom.body.dataset.cam === "true" ? dom.body.dataset.cam = "false" : dom.body.dataset.cam = "true";
-            webcam.switch();
-        });
-    },
-    play: (paths) => {
-        return new Promise((resolve, reject) => { //console.log(link,arrayRemove(link,""));
-            var camera = dom.camera;
-            var video = camera.find("#video");
-
-            if(window.width < window.height) { constraints = webcam.constraints.horizontal; }
-            else { constraints = webcam.constraints.horizontal; }
-
-            navigator.mediaDevices.getUserMedia(constraints).then(async stream => {
-                var track = stream.getVideoTracks()[0];
-                video.srcObject = webcam.stream = stream;
-                video.onloadedmetadata = data => { 
-                  console.log({video,track});
-                  //alert('play');
-                    //var capabilities = track.getCapabilities(); console.log({capabilities});
-                    //if(capabilities.zoom) { }
-                    //if(capabilities.torch) { }
-
-                    //webcam.enumerate();
-                    //alert('play');
-
-                    //$(all('.io')).addClass('i').removeClass('o');
-                    dom.body.dataset.cam = true;
-                    $(camera).addClass('playing')[0].find('video').play();
-                    camera.dataset.mode = 'camera';
-                    resolve({paths});
-                }
-            }).catch(err => {
-                $(camera).removeClass('playing');
-                dom.body.dataset.cam = false;
-                resolve({paths,err});
-            });
-        });
-    },
-    playing: () => {
-        return dom.camera.classList.contains('playing');
-    },
-    record: {
-      blob: event => {
-        const recordingBlob = new Blob(webcam.record.chunks, { type: 'video/mp4', });
-        const recordingUrl = URL.createObjectURL(recordingBlob);
-        var preview = byId('camera-video');
-        preview.srcObject = undefined;
-        preview.src = recordingUrl;
-        var cam = dom.camera;
-        cam.classList.add('snap');
-        cam.closest('.create-form').classList.add('snap');
-      },
-      chunks: [],
-      chunk: event => { webcam.record.chunks.push(event.data); },
-      er: null,
-      ed: () => {
-        webcam.record.er.stop();
-        dom.camera.dataset.record = "ed";
-      },
-      ing: event => {
-        if(webcam.playing() && webcam.stream && ('MediaRecorder' in window)) {
-          webcam.record.er = new MediaRecorder(webcam.stream);
-          webcam.record.er.start();
-          webcam.record.er.ondataavailable = webcam.record.chunk;
-          webcam.record.er.onstop = webcam.record.blob;
-          dom.camera.dataset.record = "ing";
-        }
-        else {
-          alert('Device not supported. Check the CanIUse MediaRecorder API browser compatibility chart.');
+  if (GOT.length > 0) {
+    if(win.pages) {
+      var isRoot = win.pages ? win.pages.hasOwnProperty(root) : null;
+      if(isRoot) {
+        var pgs = pages[root];
+        var len = arr2.length;
+        if(len <= pgs.length) {
+          var index = len - 1;
+          var pg = pgs[index];
+          arr1 = rout.ed.dir(pg);
         }
       }
-    },
-    resize: image => {
-
-    },
-    skip: () => {
-        ('/create/'+byId('header-create').dataset.tab+'/').router();
-    },
-    save: format => {
-        var image = byId('camera-photo').innerHTML;
-        if(["audio"].includes(format)) {
-            webcam.audio ? webcam.audio.destroy() : null
-            webcam.audio = WaveSurfer.create({container: '#create-image-waveform', cursorColor: '#777', progressColor: '#0096c7', responsive: true, waveColor: '#fff'});
-            webcam.audio.load(webcam.media);
-            ('/create/audio/').router().then(() => {;      
-                webcam.audio.on('ready',() => { 
-                    //webcam.media = dom.file.files[0];
-                    webcam.audio.pause();
-                    byId('create-image').innerHTML = byId('camera-photo').find('img').outerHTML+byId('camera-photo').find('.controls').outerHTML;
-                    byId('create-audio-play').classList.add('ing');    
-
-                });     
-                dom.camera.classList.remove('snap');
-                dom.camera.closest('.create-form').classList.remove('snap');
-
-                //byId('file').remove();
-                //byId('webcam').insertAdjacentHTML('afterbegin','<input id="file" style="display:none;" type="file" onchange="webcam.file(this);">');
-            });
-            webcam.audio.on('play',() => {
-                byId('create-audio-play').classList.add('ing');
-            });
-            webcam.audio.on('pause',() => { 
-                byId('create-audio-play').classList.remove('ing');
-            });
-        }
-        if(["merch","pages","photo"].includes(format)) {
-            byId('create-image').innerHTML = image;
-            dom.camera.classList.remove('snap');
-            dom.camera.closest('.create-form').classList.remove('snap');
-            webcam.clear();
-        }
-        if(format === 'video') {
-            byId('create-image').insertAdjacentHTML('beforeend',byId('camera-video').outerHTML);
-            dom.camera.classList.remove('snap');
-            dom.camera.closest('.create-form').classList.remove('snap');
-            webcam.clear();
-            dom.camera.classList.remove('snap');
-            dom.camera.closest('.create-form').classList.remove('snap');
-            webcam.clear();
-        }
-        if(format === 'merch') {
-            byId('camera').insertAdjacentHTML('beforebegin','<picture class="thumbnail">'+image+'</picture>');
-            dom.camera.classList.remove('snap');
-            dom.camera.closest('.create-form').classList.remove('snap');
-            webcam.clear();
-            dom.camera.classList.remove('snap');
-            dom.camera.closest('.create-form').classList.remove('snap');
-            webcam.clear();
-            dom.camera.classList.remove('snap');
-            dom.camera.closest('.create-form').classList.remove('snap');
-            webcam.clear();
-        }
-        ('/create/'+format+'/').router().then(() => {            
-          //byId('webcam').insertAdjacentHTML('afterbegin','<input class="file input" id="file" style="display:none" type="file" onchange="webcam.file(this);" accept="image/*">');
-          //byId('webcam').children[1].remove();
-        });
-    },
-    snap: format => {
-        if(webcam.stream) {
-            var cam = byId('camera');
-            if(['photo'].includes(format)) {
-                var vid = cam.find('video');
-                var canvas = cam.find('canvas');
-                var photo = cam.find('picture');
-                var width = webcam.global.width;
-                var context = canvas.getContext('2d');
-                photo.width = canvas.width = width; //alert("width:" + width);
-                webcam.global.height = 
-                  photo.height = canvas.height = 
-                  height = vid.videoHeight/(vid.videoWidth/width); //alert("height: " + height);
-                //if(cam.clientHeight < cam.clientWidth) { }
-                context.drawImage(vid, 0, 0, width, height);
-                if(width && height) {
-                  //alert(width + ":" + height);
-                  //var data = canvas.toDataURL('image/png');
-                  //canvas.width = width;
-                  //canvas.height = height;
-                  var image = canvas.toDataURL('image/png');
-                  //context.drawImage(video, 0, 0, width, height);
-
-                  //cam.closest('.camera').classList.add('snap');
-                  //cam.closest('.create-form').classList.add('snap');
-
-                  photo.find('img').src = image;
-                  console.log('width:'+width+", height:"+height);
-                }
-            }
-            if(format === 'video') {
-              cam.closest('.camera').classList.add('snap');
-              cam.closest('.create-form').classList.add('snap');
-            }
-        }
-    },
-    stream: null,
-    camera: () => { return dom.body.dataset.cam === "true"; },
-    capture: () => { return dom.camera.find('[type="file"]').capture !== undefined; },
-    tags: target => {
-        var button = target.closest('.tags');
-        if(target.closest('.hash')) { $(button).toggleClass('hashtag'); }
-    },
-    upload: (format) => { console.log(webcam);
-        var file = dom.file;
-        webcam.media = file.input;
-        if(format === 'merch') {
-            file.accept = 'image/*';
-            file.removeAttribute('capture');
-        }
-        if(format === 'photo') {
-            file.accept = 'image/*';
-            file.removeAttribute('capture');
-        }
-        if(format === 'video') {
-            file.accept = 'video/*';
-            file.removeAttribute('capture');
-        }
-        if(format === 'audio') {
-            file.accept = 'image/*';
-            file.removeAttribute('capture');
-        }
-        if(format === 'pages') {
-            file.accept = 'image/*';
-            file.removeAttribute('capture');
-        }
-        file.click();
-    },
-    load: {
-        down: target => { target.href = canvas.toDataURL('image/png'); },
-        up: event => { }
+    } else {
+      do {
+        var m = GOT[n];
+        var bool = win.rout.ing(state, GOT, n);
+        arr1[n] = bool ? "*" : m;
+        n++;
+      } while (n < GOT.length);
     }
+  }
+  var page = rout.ed.url(arr1);
+  var path = rout.ed.url(arr2);
+  var search = state.split('?').length > 1 ? state.split('?')[1].split('#')[0] : null;
+  var rh = state.split("?")[0].split("/");
+  var hr = state.split("?")[0].split("/");
+  if(state.includes("?")) {
+    method = hr[hr.length-1];
+  } else {
+    method = null;
+  }
+  path = hr.join("/").replace(/\/?(\?|#|$)/, '/$1').split('#')[0];
+  //var path = hr.substring(0, hr.lastIndexOf("/") + 1)
+  var data = {
+    GOT: rout.ed.dir(path),
+    hash: state.split('#').length > 1 ? state.split('#')[1] : null,
+    method,
+    page: page.split('/').join('/'),
+    path,
+    path,
+    root,
+    search,
+    state
+  };
+  return data;
+};
+window.rout.ed = {
+    back: route => {
+      
+    },
+    bang: route => {
+      return new Promise(async(resolve,reject) => {
+
+        //Variables
+        route.root = getRoot($('pages[data-pages]'));
+        var pages =  dom.body.find('pages[data-root="'+route.root+'"]');
+        var page = dom.body.find('page[data-page="'+route.page+'"]');
+        var vp = page ? page : pages;
+        console.log('bang',{route,page,pages,vp});
+
+        if(vp) {
+
+          var wt = vp.tagName.toLowerCase();
+
+          //View Route
+          route.root ? document.body.dataset.pages = route.root : document.body.removeAttribute('data-pages');
+          if(vp.closest('main')) {
+            //$('[data-pages]').removeClass('active');
+            //$('[data-page]').removeClass("active");
+            dom.body.removeAttribute('data-ppp');
+          }
+          else {
+            dom.body.setAttribute('data-ppp',paths.page);
+          }
+
+          vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
+          //$(vp).addClass('active');
+          vp.dataset.path = paths.path+(paths.search ? "?"+paths.search : "");
+
+          var fet = vp.all('[data-fetch]:empty');
+          if(fet.length > 0) {
+            var ch = 0; do {
+              var el = fet[ch];
+              if(el) {
+                var get = el.dataset.fetch;
+                var html = await ajax(get);
+                el.innerHTML = html;
+                var srcs = el.all('[data-src]');
+                lazyLoad(srcs);
+              }
+            ch++; } while(ch < fet.length);
+          }
+        } else {
+            dom.body.removeAttribute('data-ppp');
+        }
+
+        lazyLoad(dom.body.all('[data-src]'));
+
+        if(vp && vp.closest('main')) {
+          $('page').removeClass("active");
+          $('pages').removeClass("active");          
+          $('[data-page]').removeClass("active");
+          $('[data-root]').removeClass("active");
+          
+          $(vp).addClass("active");
+          $('[data-page="'+route.page+'"]').addClass("active");
+          $('[data-root="'+route.root+'"]').addClass("active");
+        } 
+        else {
+          $('body > page').removeClass("active");
+          $('body > pages').removeClass("active");  
+          $('body > pages page').removeClass("active");              
+          $('body > * [data-page]').removeClass("active");         
+          //$('[data-root]').removeClass("active");
+          
+          $('[data-page="'+route.page+'"]').addClass("active");
+          $('[data-root="'+route.root+'"]').addClass("active");
+        }
+
+        //$('[data-page="'+route.page+'"]').addClass("active");
+        //$('[data-root="'+route.root+'"]').addClass("active");
+
+        var rs = $('[data-pages]');
+        if(rs.length > 0) {
+          var i = 0; do {
+            route.page.includes(rs[i].dataset.root) ? rs[i].classList.add('active') : null;
+          i++; } while(i < rs.length)
+        }
+
+        resolve(route);
+
+      });
+    },
+    close: () => {
+        var active = document.body.find('main page.active');
+        (active ? active.dataset.path : '/').router();
+    },
+    dir: (url, num, g = []) => {
+      if(url) {
+        var split = url.split("/");
+        split.forEach((a, i) => {
+          i < split.length - 0 ? g[i] = a : null;
+        });
+        g[0] === "" ? g.shift() : null;
+        g[g.length - 1] === "" ? g.pop() : null;
+      }
+      return g;
+    },
+    url: (dir) => {
+      if(dir.length > 0) {
+        var end = dir[dir.length-1];
+        href = dir.length === 0 ? "/" : "/" + dir.join("/") + (end.includes("?") ? "" : "/");
+      }
+      else {
+        href = "/";
+      }
+      return href;
+    },
+    vars: async function(tabs) {
+      var d = 0, e = 0; do {
+        var dir = tabs[d];
+        if(dir && dir.length > 0) {
+          if(dir.charAt(0) === "*") {
+            dir = GOT[d];
+          }
+          if(dir.charAt(0) === ":") {
+            dir = dir.substring(1);
+            if(!isNaN(dir)) {
+              var drc = rout.ed.dir(dom.body.dataset.path);
+              console.log({dir, is: d >= parseInt(dir), drcd: drc[d]});
+              if(drc[e-1] && d >= parseInt(dir)) {
+                //alert('dir'+dir);
+                e === 0 && d > 0 ? e = d + 1 : e;
+                dir = drc[e];
+                //d = d  1;
+                e++;
+              } else {
+                dir = null;
+                tabs.splice(d,1);
+                d = tabs.length;//alert(1);
+              }
+            }
+            if(dir === "app") {
+              var name = generateName();
+              var domain = name.toLowerCase().replace("-","").replace(" ","");
+              dir = domain;
+            }
+            if(dir === "app") {
+              var name = generateName();
+              var domain = name.toLowerCase().replace("-","").replace(" ","");
+              dir = domain;
+            }
+            if(dir === "color") {
+              dir = colors.random();
+            }
+            if(dir === "domain") {
+              if(window.GET && window.GET[d]) {
+                dir = GET[d]; //alert(1);
+              } else {
+                dir = crypt.uid.create(1);
+              }
+            }
+            if(dir === "get") {
+                var drc = rout.ed.dir(dom.body.dataset.path);
+                if(drc[d]) {
+                dir = drc[d]; //alert(drc[d]);
+                }else {
+                dir = null;
+                tabs.splice(d,1);
+                d = tabs.length;//alert(1);
+              }
+            }
+            if(is.json(decodeURI(dir))) {
+              var str = decodeURI(dir);
+              var json = JSON.parse(decodeURI(str));
+              var drc = rout.ed.dir(dom.body.dataset.path);
+              dir = drc[d]; //alert(1);
+            }
+            if(dir === "id") {
+              var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
+              var domain = get[d];
+              //alert(domain);
+              var isApp = domain ? await is.app(domain) : false;
+              var isNum = !isNaN(domain);
+
+              console.log({isApp,isNum});
+              if(domain) {
+                dir = get[d];
+                dir = Crypto.uid.create(1);
+              } else {
+                dir = Crypto.uid.create(1);
+              }
+            }
+            if(dir === "iframe") {
+              //alert(dir);
+              dir = null;
+            }
+            if(dir === "last") {
+              var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
+              var pagi = get[get.length-1];
+              var i = get[d];
+              var int = parseInt(pagi)-1; //alert('last:'+int);
+              dir = int < 1 ? 'coochie' : int;
+            }
+            if(dir === "next") {
+              var get = window.GET ? GET : rout.ed.dir(window.location.pathname);
+              var pagi = get[get.length-1];
+              var int = get[d];
+              var dir = int === "%E2%88%9E" ? 1 : parseInt(int)+1;
+            }
+            if(dir === "path") {
+              if(dom.body.dataset.path) {
+                var drc = rout.ed.dir(dom.body.dataset.path);
+                //alert(drc.length);
+                if(drc.length > 1) {
+
+                } else {
+                  dir = drc.join("/");
+                }
+              }
+              d = tabs.length;
+            }
+            if(dir === "uid") {
+              dir = crypt.uid.create(1);
+            }
+          }
+          if(dir) {
+            tabs[d] = dir.toString().split(":")[0];
+          } else {
+            tabs[d] = null;
+          }
+        }
+      d++; } while(d < tabs.length);
+      tabs = tabs.filter(function (el) { return el != null; });
+      //console.log({tabs});
+      return tabs;
+    },
+    view: route => {
+      return new Promise(async(resolve,reject) => {
+
+        //Variables
+        route.root = getRoot($('pages[data-pages]'));
+        var pages =  dom.body.find('pages[data-pages="'+route.root+'"]');
+        var page = dom.body.find('page[data-page="'+route.page+'"]');
+        var vp = page ? page : pages;
+        console.log('bang',{route,page,pages,vp});
+
+        if(vp) {
+
+          var wt = vp.tagName.toLowerCase();
+
+          //View Route
+          route.root ? document.body.dataset.pages = route.root : document.body.removeAttribute('data-pages');
+          if(vp.closest('main')) {
+            //$('[data-pages]').removeClass('active');
+            //$('[data-page]').removeClass("active");
+            dom.body.removeAttribute('data-ppp');
+          }
+          else {
+            dom.body.setAttribute('data-ppp',paths.page);
+          }
+
+          vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
+          //$(vp).addClass('active');
+          vp.dataset.path = paths.path+(paths.search ? "?"+paths.search : "");
+
+          var fet = vp.all('[data-fetch]:empty');
+          if(fet.length > 0) {
+            var ch = 0; do {
+              var el = fet[ch];
+              if(el) {
+                var get = el.dataset.fetch;
+                var html = await ajax(get);
+                el.innerHTML = html;
+                var srcs = el.all('[data-src]');
+                lazyLoad(srcs);
+              }
+            ch++; } while(ch < fet.length);
+          }
+        } else {
+            dom.body.removeAttribute('data-ppp');
+        }
+
+        lazyLoad(dom.body.all('[data-src]'));
+
+        if(vp && vp.closest('main')) {
+          $('page').removeClass("active");
+          $('pages').removeClass("active");
+          $('[data-page]').removeClass("active");
+          $('[data-root]').removeClass("active");
+        } else {
+          $('body > page').removeClass("active");
+          $('body > pages').removeClass("active");  
+          $('body > pages page').removeClass("active");    
+          $('[data-page]').removeClass("active");         
+          $('[data-root]').removeClass("active");
+        }
+
+        $('[data-page="'+route.page+'"]').addClass("active");
+        $('[data-root="'+route.root+'"]').addClass("active");
+
+        var rs = $('[data-root]');
+        if(rs.length > 0) {
+          var i = 0; do {
+            route.page.includes(rs[i].dataset.root) ? rs[i].classList.add('active') : null;
+          i++; } while(i < rs.length)
+        }
+
+        resolve(route);
+
+      });      
+    }
+};
+window.rout.ing = (href, GOT, n) => {
+  return false;
+};
+window.rout.es = [];
+window.rout.er = page => {
+  return dom.body.find('page[data-page="'+(page ? page : dom.body.dataset.page)+'"]')
+};
+
+function getRoot(els) {
+  var els = $('[data-root]');
+  var root = null;
+  if(els.length > 0) {
+    var arr = [];
+    var r = 0; do {
+      arr.push(els[r].dataset.root);
+    r++; } while(r < els.length);
+    window.paths.arr = arr;
+    root = paths.page.stringExists(arr);
+  }
+  return root;
 }
-function keyByVal(object, value) { return Object.keys(object).find(key => object[key] === value); }
-function objByKeyVal(object, key, value) { return Object.values(object).find(val => val[key] === value); }
+function getPages(win) {
+  var els = win.document.body.all('[data-page]');
+  var root = null;
+  if(els.length > 0) {
+    var arr = [];
+    var r = 0; do {
+      arr.push(els[r].dataset.root);
+    r++; } while(r < els.length);
+    window.paths.arr = arr;
+    root = paths.page.stringExists(arr);
+  }
+  return root;
+}

@@ -48,6 +48,7 @@ script > ~ { display: none; }
 
 column { flex-direction: column; }
 row { flex-direction: row; }
+column, row { display: flex; display: -webkit-flex; }
 
 card {display: block;max-width: 100%;overflow: visible;}
 body[data-tap="focal.tap.builder(target)"] card > section:empty { min-height: 50px; }

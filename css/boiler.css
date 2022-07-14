@@ -1550,12 +1550,13 @@ body[data-auth="true"] .isauth-padding-top-50px { padding-top: 50px; }
 }
 
 @media screen and (max-width: 480px) {
-    .mobile-padding-y-10px { padding-top: 10px; padding-bottom: 10px; }
-    .mobile-padding-x-20px { padding-left: 20px; padding-right: 20px; }
-    .mobile-padding-x-40px { padding-left: 40px; padding-right: 40px; }
-    .mobile-padding-y-0 { padding-top: 0; padding-bottom: 0; }
-    .mobile-padding-x-10px { padding-left: 10px; padding-right: 10px; }
-    .mobile-padding-left-0 { padding-left: 0; }
+  .mobile-padding-y-10px { padding-top: 10px; padding-bottom: 10px; }
+  .mobile-padding-x-20px { padding-left: 20px; padding-right: 20px; }
+  .mobile-padding-x-40px { padding-left: 40px; padding-right: 40px; }
+  .mobile-padding-y-0 { padding-top: 0; padding-bottom: 0; }
+  .mobile-padding-x-10px { padding-left: 10px; padding-right: 10px; }
+  .mobile-padding-left-0 { padding-left: 0; }
+  .mobile-padding-top-45px { padding-top: 45px; }
 }
 @media screen and (max-width: 960px) {
   .dw960px-padding-bottom-0 { padding-bottom: 0; }

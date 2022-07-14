@@ -1617,6 +1617,7 @@ body[data-auth="true"] .isauth-padding-top-50px { padding-top: 50px; }
 .rotate-225deg { transform: rotate(225deg); }
 .rotate-270deg { transform: rotate(270deg); }
 
+/*SCALE*/
 .scale-half-top-right {transform: scale(0.5) translateY(-50%) translateX(50%);}
 .scale-half-bottom-left {transform: scale(0.5) translateY(50%) translateX(-50%);}
 
@@ -1629,6 +1630,9 @@ body[data-auth="true"] .isauth-padding-top-50px { padding-top: 50px; }
 .scale-300pc, [data-transform-scale="300%"] { transform: scale(3); }
 .scale-400pc, [data-transform-scale="400%"] { transform: scale(4); }
 .scale-500pc, [data-transform-scale="500%"] { transform: scale(5); }
+
+.scale-x--1, [data-scale-x="-1"] { transform: scaleX(-1); }
+/*SCALE*/
 
 .shadow {box-shadow: 0 1px 6px 0;}
 .shadow-0-1px-6px { box-shadow: 0 1px 6px; }

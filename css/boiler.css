@@ -993,6 +993,7 @@ img {object-fit: cover;}
   .mobile-left-100pc-50px { left: calc(100% - 50px); }
 
   .mobile-right-0 { right: 0; }
+  .mobile-right-20px { right: 20px; }
 }
 
 .line-height-16px { line-height: 16px; }

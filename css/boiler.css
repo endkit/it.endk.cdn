@@ -536,6 +536,7 @@ empty > section { width: 100%; }
   .tablet-border-top-4px-solid { border-top: 5px solid; }
 }
 @media screen and (max-width: 480px) {    
+  .mobile-border-unset { border: unset; }
   .mobile-border-bottom-1px-solid { border-bottom: 1px solid; }
   .mobile-border-top-1px-solid { border-top: 1px solid; }
 }
@@ -1152,6 +1153,7 @@ iframe[data-device="mobile"] { width: 320px; }
 .margin-x-4vw {margin-left: 4vw;margin-right: 4vw;}
 .margin-top-0 { margin-top: 0; }
 .margin-top-5px { margin-top: 5px; }
+.margin-top-8px { margin-top: 8px; }
 .margin-top-10px { margin-top: 10px; }
 .margin-top-20px { margin-top: 20px; }
 .margin-top-30px { margin-top: 30px; }
@@ -1664,10 +1666,10 @@ empty:hover { box-shadow: 0 10px 10px 0 #ff3b30; }
     .mobile-direction-row { flex-direction: row; }
     .mobile-direction-column {flex-direction: column;}
     .mobile-direction-column-reverse {flex-direction: column-reverse;}
-    .mobile-bg-none { background: unset; }
+    .mobile-bg-none, .mobile-bg-unset { background: unset; }
     .mobile-bg-black { background: black; }
     .mobile-shadow {box-shadow: 0 1px 6px 0 rgb(0 0 0 / 16%);}
-    .mobile-shadow-none { box-shadow: unset; }
+    .mobile-shadow-none, .mobile-shadow-unset { box-shadow: unset; }
 }
 
 .spin-30s { -webkit-animation: spin 30s infinite linear; }

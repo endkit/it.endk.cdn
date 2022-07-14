@@ -216,6 +216,7 @@ window.rout.ed = {
           $('[data-root]').removeClass("active");
           
           $(vp).addClass("active");
+          $('[data-page="'+route.page+'"]').addClass("active");
           $('[data-root="'+route.root+'"]').addClass("active");
         } 
         else {

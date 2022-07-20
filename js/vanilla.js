@@ -173,7 +173,7 @@ function ajax(url, settings) { ;
     else {
       req = url;
     }
-    console.log({url,data});
+    //console.log({url,data});
     fetch(url, data)
       .then(async(response) => {
         //console.log('vanilla.js ajax.fetch res',{response});

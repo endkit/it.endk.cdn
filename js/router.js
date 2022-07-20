@@ -48,19 +48,17 @@ String.prototype.router = async function(params) {
       
       mvc.v(route)
         .then(async(route) => {
-
+        
           route.root = getRoot($('pages[data-pages]'));
-
+        
           var state = s ? s : route;
           var path = state.path;
           var page = state.page;
           var m = window.location.origin;
           var url = new URL(state.path, m === "null" ? "https://localhost" : m);
           var search = url.search;
-          var path = url.pathname.replace(/\/?$/, "/");
-          var pages =  dom.body.find('pages[data-pages="'+route.root+'"]');
+          var path = url.pathname.replace(/\/?$/, "/");        
           var page = dom.body.find('page[data-page="'+route.page+'"]');
-          var vp = page ? page : pages;
 
           document.body.classList.contains("loading") ? document.body.classList.remove("loading") : null;
 

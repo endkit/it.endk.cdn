@@ -155,7 +155,7 @@ function ajax(url, settings) { ;
   var dir = window.location.href.split(url); //console.log(dir);
   return new Promise((resolve, reject) => {
     var req; //console.log(url);
-    const data = {};
+    var data = {};
     if(settings) {
       settings.headers ? data.headers = settings.headers : null;
       if(settings.dataType) {

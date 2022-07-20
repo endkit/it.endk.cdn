@@ -65,7 +65,7 @@ String.prototype.router = async function(params) {
           rout.es.push(paths.path);
           await rout.ed.bang(route);
         
-          console.log('router.js resolve', 200, route);        
+          //console.log('router.js resolve', 200, route);        
         
           if(!pop) {
             if(!["blob:"].includes(window.location.protocol)) {
@@ -167,7 +167,7 @@ window.rout.ed = {
         var pages =  dom.body.find('pages[data-root="'+route.root+'"]');
         var page = dom.body.find('page[data-page="'+route.page+'"]');
         var vp = page ? page : pages;
-        console.log('bang',{route,page,pages,vp});
+        //console.log('bang',{route,page,pages,vp});
 
         if(vp) {
 

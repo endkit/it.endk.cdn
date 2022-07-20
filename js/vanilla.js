@@ -155,24 +155,26 @@ function ajax(url, settings) { ;
   var dir = window.location.href.split(url); //console.log(dir);
   return new Promise((resolve, reject) => {
     var req; //console.log(url);
+    const data = {};
     if(settings) {
+      settings.headers ? data.headers = settings.headers : null;
       if(settings.dataType) {
-        var data = {
+        data = {
           method: settings.dataType,
           body: (settings.data ? JSON.stringify(settings.data) : null)
         };
-        settings.headers ? data.headers = new Headers(settings.headers) : null;
         settings.dataType === "OPTIONS" ? data.credentials = 'include' : null;
-        req = new Request(url, data);
-      } else {
+        //req = new Request(url, data);
+      } 
+      else {
         req = url;
       }
     }
     else {
       req = url;
     }
-    //console.log({url,req});
-    fetch(req)
+    console.log({url,data});
+    fetch(url, data)
       .then(async(response) => {
         //console.log('vanilla.js ajax.fetch res',{response});
         if(!response.ok) { 

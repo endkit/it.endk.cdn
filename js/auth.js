@@ -1,13 +1,13 @@
 window.auth = {
   config: {
-    apiKey: "",
-    authDomain: "",
-    projectId: "",
-    messagingSenderId: "",
-    appId: ""
+    apiKey: "AIzaSyBQDha5igS_fAWT5MG0yuQhviYluz2pGgo",
+    authDomain: "anoniiimous-5fc1b.firebaseapp.com",
+    projectId: "anoniiimous-5fc1b",
+    messagingSenderId: "723849278721",
+    appId: "1:723849278721:web:c636daf96842fc51dc5700"
   },
   change: (user) => {    
-    console.log('auth.change',{user});
+    //console.log('auth.change',{user});
     return new Promise(async (resolve, reject, url) => {
       if(user) {
         dom.body.dataset.uid = user.uid;
@@ -70,7 +70,6 @@ window.auth = {
   },
   account: {
     close: (network) => {
-
       return new Promise((resolve, reject) => {
         firebase
           .auth()
@@ -116,19 +115,6 @@ window.auth = {
       });
       
     },
-    signin: (email, password) => {
-      return new Promise((resolve, reject) => {
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(email, password)
-          .then(e => {
-              resolve(e);
-          })
-          .catch(e => {
-              reject(e);
-          });
-      });
-    },
     setup: (event) => {
       event.preventDefault();
       var form = event.target;
@@ -163,6 +149,19 @@ window.auth = {
           alert("You must supply a name, email, password and username.", 3);
         }
       })
+    },
+    signin: (email, password) => {
+      return new Promise((resolve, reject) => {
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then(e => {
+              resolve(e);
+          })
+          .catch(e => {
+              reject(e);
+          });
+      });
     },
     update: async (event) => {
       event.preventDefault();

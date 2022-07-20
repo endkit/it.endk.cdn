@@ -151,6 +151,24 @@ window.$ = e => {
 window.tld = () => window.location.hostname.split('.')[window.location.hostname.split('.').length-1];
 window.domain = () => window.location.hostname.split('.')[window.location.hostname.split('.').length-2];
 
+window.is = {
+    json: str => {
+      try {
+          JSON.parse(str);
+      } catch (e) {
+          return false;
+      }
+      return true;
+    },
+    local: href => href.contains(['127.0.0.1', 'about:', 'blob:', 'file:', 'localhost']),
+    mobile: () => {
+        return ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    },
+    touch: ()=>{
+        return (('ontouchstart'in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+    }
+};
+
 function ajax(url, settings) { ;
   var dir = window.location.href.split(url); //console.log(dir);
   return new Promise((resolve, reject) => {
@@ -176,18 +194,23 @@ function ajax(url, settings) { ;
     //console.log({url,data});
     fetch(url, data)
       .then(async(response) => {
-        //console.log('vanilla.js ajax.fetch res',{response});
         if(!response.ok) { 
           //throw new Error(JSON.stringify({code:response.status,message:response.statusText})); 
           return response.text().then(text => {
             var statusText = JSON.parse(text);
             var data = {code:response.status,message:statusText};
-            console.log('vanilla.js ajax.fetch res.err',data);
+            //console.log('vanilla.js ajax.fetch res.err',{data});
             var text = JSON.stringify(data);
             throw new Error(text);
           })
         }
-        return response.text()
+        return response.text();
+      })
+      .then(response => {
+        const isJSON = is.json(response);
+        //console.log('vanilla.js ajax.fetch res',{isJSON,response});
+        const data = isJSON ? JSON.parse(response) : response;
+        resolve(response);
       })
       .then(response => resolve(response))
       .catch(error => {

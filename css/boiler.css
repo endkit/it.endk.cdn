@@ -2999,7 +2999,7 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
   .tablet-width-425px, [data-tablet-width="425px"] { width: 425px; }
 }
 
-@media screen and (max-width: 425px) { 
+@media screen and (max-width: 480px) { 
   .mobile-translateX--100pc { transform: translateX(-100pc) } 
   .mobile-fixed { position: fixed; }
   .mobile-width-0, [data-mobile-width="0"] { width: calc(0%); }

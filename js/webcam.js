@@ -178,12 +178,6 @@ window.webcam = {
                 //dom.camera.classList.add('snap');
                 resolve({file,type});
               }
-              var input = byId('post-file');
-              var elem = input.parentElement;
-              var html = input.outerHTML;
-              input.remove();
-              elem.insertAdjacentHTML('beforeend',html);
-              //dom.file = byId('webcam').firstChild;
           }
           function onProgress(evt) {
               console.log({evt});

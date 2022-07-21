@@ -1944,6 +1944,35 @@ empty:hover { box-shadow: 0 10px 10px 0 #ff3b30; }
     .tablet-grid-gap-40px, [data-tablet-grid-gap="40px"] { grid-gap: 40px; }
     .tablet-grid-gap-50px, [data-tablet-grid-gap="50px"] { grid-gap: 50px; }
   }
+
+  @media screen and (max-width: 425px) {
+    [data-mobile-columns] { display: grid; }
+
+    [data-mobile-columns="1"] { grid-template-columns: auto; }
+    [data-mobile-columns="2"] { grid-template-columns: auto auto; }
+    [data-mobile-columns="3"] { grid-template-columns: auto auto auto; }
+    [data-mobile-columns="4"] { grid-template-columns: auto auto auto auto; }
+    [data-mobile-columns="5"] { grid-template-columns: auto auto auto auto auto; }
+    [data-mobile-columns="6"] { grid-template-columns: auto auto auto auto auto auto; }
+    [data-mobile-columns="7"] { grid-template-columns: auto auto auto auto auto auto auto; }
+    [data-mobile-columns="8"] { grid-template-columns: auto auto auto auto auto auto auto auto; }
+    [data-mobile-columns="9"] { grid-template-columns: auto auto auto auto auto auto auto auto auto; }
+
+    .mobile-grid-gap-1px, [data-mobile-grid-gap="1px"] { grid-gap: 1px; }
+    .mobile-grid-gap-2px, [data-mobile-grid-gap="2px"] { grid-gap: 2px; }
+    .mobile-grid-gap-3px, [data-mobile-grid-gap="3px"] { grid-gap: 3px; }
+    .mobile-grid-gap-4px, [data-mobile-grid-gap="4px"] { grid-gap: 4px; }
+    .mobile-grid-gap-5px, [data-mobile-grid-gap="5px"] { grid-gap: 5px; }
+    .mobile-grid-gap-6px, [data-mobile-grid-gap="6px"] { grid-gap: 6px; }
+    .mobile-grid-gap-7px, [data-mobile-grid-gap="7px"] { grid-gap: 7px; }
+    .mobile-grid-gap-8px, [data-mobile-grid-gap="8px"] { grid-gap: 8px; }
+    .mobile-grid-gap-9px, [data-mobile-grid-gap="9px"] { grid-gap: 9px; }
+    .mobile-grid-gap-10px, [data-mobile-grid-gap="10px"] { grid-gap: 10px; }
+    .mobile-grid-gap-20px, [data-mobile-grid-gap="20px"] { grid-gap: 20px; }
+    .mobile-grid-gap-30px, [data-mobile-grid-gap="30px"] { grid-gap: 30px; }
+    .mobile-grid-gap-40px, [data-mobile-grid-gap="40px"] { grid-gap: 40px; }
+    .mobile-grid-gap-50px, [data-mobile-grid-gap="50px"] { grid-gap: 50px; }
+  }
 }
 
 @media screen and (min-width:1000000px) {

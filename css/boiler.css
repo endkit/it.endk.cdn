@@ -2871,30 +2871,6 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
   [data-vga-width="100%"] {width: 100%;}
 }
 
-@media screen and (max-width: 480px) { 
-  .mobile-translateX--100pc { transform: translateX(-100pc) } 
-  .mobile-fixed { position: fixed; }
-  .mobile-width-0, [data-mobile-width="0"] { width: calc(0%); }
-  .mobile-width-100pc, [data-mobile-width="100%"] { width: calc(100%); }
-  [data-mobile-width="50px"] { width: calc(50px); }
-  [data-mobile-width="320px"] { width: calc(320px); }
-  [data-mobile-width="100%-10px"] { width: calc(100% - 10px); }
-  [data-mobile-width="100%-20px"] { width: calc(100% - 20px); }
-  [data-mobile-width="100%-40px"] { width: calc(100% - 40px); }
-  [data-mobile-width="100%-50px"] {width: calc(100% - 50px);}
-  [data-mobile-width="100%-960px"] { width: calc(100% - 960px); }
-  .mobile-width-0 { width: 0; }
-  .mobile-width-100pc {width: calc(100% - 0px); }
-  .mobile-width-100pc-20px {width: calc(100% - 20px); }
-  .mobile-width-100pc-40px {width: calc(100% - 40px); }
-
-  .mobile-max-width-100pc-20px {max-width: calc(100% - 20px);}
-
-  [data-mobile-height="100%"] { height: calc(100% - 0px); }    
-  [data-mobile-width="100%-20px"] {width: calc(100% - 20px);}
-  [data-mobile-width="(100%-30px)/2"] {width: calc((100% - 30px)/2);}
-  .mobile-height-100pc--100px, [data-mobile-height="100%-100px"] {height: calc(100% - 100px);}
-}
 
 
 .width-auto {width: auto;}
@@ -2980,6 +2956,20 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
 .width-50vw { width: 50vw; }
 .width-100vw { width: 100vw; }
 
+[data-width="320px"], .width-iphone, .width-mobile, [data-screen="mobile"], [data-screen="iphone"] { width: 320px; }
+
+[data-width="100%-1px"], [data-width="calc(100%-1px)"], [data-width="calc(100% - 1px)"] { width: calc(100% - 1px); }
+[data-width="100%-2px"], [data-width="calc(100%-2px)"], [data-width="calc(100% - 2px)"] { width: calc(100% - 2px); }
+[data-width="100%-3px"], [data-width="calc(100%-3px)"], [data-width="calc(100% - 3px)"] { width: calc(100% - 3px); }
+[data-width="100%-4px"], [data-width="calc(100%-4px)"], [data-width="calc(100% - 4px)"] { width: calc(100% - 4px); }
+[data-width="100%-5px"], [data-width="calc(100%-5px)"], [data-width="calc(100% - 5px)"] { width: calc(100% - 5px); }
+[data-width="100%-6px"], [data-width="calc(100%-6px)"], [data-width="calc(100% - 6px)"] { width: calc(100% - 6px); }
+[data-width="100%-7px"], [data-width="calc(100%-7px)"], [data-width="calc(100% - 7px)"] { width: calc(100% - 7px); }
+[data-width="100%-8px"], [data-width="calc(100%-8px)"], [data-width="calc(100% - 8px)"] { width: calc(100% - 8px); }
+[data-width="100%-9px"], [data-width="calc(100%-9px)"], [data-width="calc(100% - 9px)"] { width: calc(100% - 9px); }
+[data-width="100%-10px"], [data-width="calc(100%-10px)"], [data-width="calc(100% - 10px)"] { width: calc(100% - 10px); }
+[data-width="100%-320px"], [data-width="calc(100%-320px)"], [data-width="calc(100% - 320px)"] { width: calc(100% - 320px); }
+
 @media screen and (orientation: landscape) {
   .landscape-width-100vh { width: 100vh; }
 }
@@ -3006,25 +2996,33 @@ body:not([data-webcam="true"]) .webcam-show { display: none; }
   .tablet-width-100px, [data-tablet-width="100px"] { width: 100px; }
   .tablet-width-77px, [data-tablet-width="77px"] { width: 77px; }
   .tablet-width-90px, [data-tablet-width="90px"] { width: 90px; }
-}
-@media screen and (max-width: 425px) {  
   .tablet-width-425px, [data-tablet-width="425px"] { width: 425px; }
 }
 
+@media screen and (max-width: 425px) { 
+  .mobile-translateX--100pc { transform: translateX(-100pc) } 
+  .mobile-fixed { position: fixed; }
+  .mobile-width-0, [data-mobile-width="0"] { width: calc(0%); }
+  .mobile-width-100pc, [data-mobile-width="100%"] { width: calc(100%); }
+  [data-mobile-width="50px"] { width: calc(50px); }
+  [data-mobile-width="320px"] { width: calc(320px); }
+  [data-mobile-width="100%-10px"] { width: calc(100% - 10px); }
+  [data-mobile-width="100%-20px"] { width: calc(100% - 20px); }
+  [data-mobile-width="100%-40px"] { width: calc(100% - 40px); }
+  [data-mobile-width="100%-50px"] {width: calc(100% - 50px);}
+  [data-mobile-width="100%-960px"] { width: calc(100% - 960px); }
+  .mobile-width-0 { width: 0; }
+  .mobile-width-100pc {width: calc(100% - 0px); }
+  .mobile-width-100pc-20px {width: calc(100% - 20px); }
+  .mobile-width-100pc-40px {width: calc(100% - 40px); }
 
-[data-width="320px"], .width-iphone, .width-mobile, [data-screen="mobile"], [data-screen="iphone"] { width: 320px; }
+  .mobile-max-width-100pc-20px {max-width: calc(100% - 20px);}
 
-[data-width="100%-1px"], [data-width="calc(100%-1px)"], [data-width="calc(100% - 1px)"] { width: calc(100% - 1px); }
-[data-width="100%-2px"], [data-width="calc(100%-2px)"], [data-width="calc(100% - 2px)"] { width: calc(100% - 2px); }
-[data-width="100%-3px"], [data-width="calc(100%-3px)"], [data-width="calc(100% - 3px)"] { width: calc(100% - 3px); }
-[data-width="100%-4px"], [data-width="calc(100%-4px)"], [data-width="calc(100% - 4px)"] { width: calc(100% - 4px); }
-[data-width="100%-5px"], [data-width="calc(100%-5px)"], [data-width="calc(100% - 5px)"] { width: calc(100% - 5px); }
-[data-width="100%-6px"], [data-width="calc(100%-6px)"], [data-width="calc(100% - 6px)"] { width: calc(100% - 6px); }
-[data-width="100%-7px"], [data-width="calc(100%-7px)"], [data-width="calc(100% - 7px)"] { width: calc(100% - 7px); }
-[data-width="100%-8px"], [data-width="calc(100%-8px)"], [data-width="calc(100% - 8px)"] { width: calc(100% - 8px); }
-[data-width="100%-9px"], [data-width="calc(100%-9px)"], [data-width="calc(100% - 9px)"] { width: calc(100% - 9px); }
-[data-width="100%-10px"], [data-width="calc(100%-10px)"], [data-width="calc(100% - 10px)"] { width: calc(100% - 10px); }
-[data-width="100%-320px"], [data-width="calc(100%-320px)"], [data-width="calc(100% - 320px)"] { width: calc(100% - 320px); }
+  [data-mobile-height="100%"] { height: calc(100% - 0px); }    
+  [data-mobile-width="100%-20px"] {width: calc(100% - 20px);}
+  [data-mobile-width="(100%-30px)/2"] {width: calc((100% - 30px)/2);}
+  .mobile-height-100pc--100px, [data-mobile-height="100%-100px"] {height: calc(100% - 100px);}
+}
 
 /*Widths*/
 

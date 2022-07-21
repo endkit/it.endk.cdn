@@ -179,7 +179,7 @@ function ajax(url, settings) { ;
       if(settings.dataType) {
         data = {
           method: settings.dataType,
-          body: (settings.data ? JSON.stringify(settings.data) : null)
+          body: (settings.data ? settings.data : null)
         };
         settings.dataType === "OPTIONS" ? data.credentials = 'include' : null;
         //req = new Request(url, data);

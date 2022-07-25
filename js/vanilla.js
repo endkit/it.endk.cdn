@@ -34,6 +34,30 @@ Array.prototype.removeClass = function(name) {
   }
   return that;
 };
+Array.prototype.attr = function(attr,name) {
+    var that = this;
+    if (that.length > 1) {
+        for (var i = that.length; i--; ) {
+            var it = this[i];
+            it ? it.setAttribute(attr,name) : null;
+        }
+    } else {
+        that[0] ? that[0].setAttribute(attr,name) : null;
+    }
+    return that;
+}
+Array.prototype.removeAttr = function(name) {
+    var that = this;
+    if (that.length > 1) {
+        for (var i = that.length; i--; ) {
+            var it = this[i];
+            it ? it.removeAttribute(name) : null;
+        }
+    } else {
+        that[0] ? that[0].removeAttribute(name) : null;
+    }
+    return that;
+}
 Array.prototype.html = function(html) {
   var that = this;
   var vals = Object.values(that);
